@@ -1,17 +1,74 @@
 ---
-
+import Base from '../layouts/Base.astro';
 ---
+<Base
+  title="Crypto Oli — XRP, XRPL et trading"
+  description="Contenu éducatif gratuit sur le XRP, le XRP Ledger et les marchés financiers, en français, depuis 2020."
+>
+  <main>
+    <h1>Crypto Oli</h1>
+    <p class="tagline">XRP · XRPL · Trading</p>
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+    <p class="intro">
+      Depuis 2020, je publie gratuitement du contenu éducatif pour aider
+      les francophones à mieux comprendre le XRP, le XRP Ledger et les
+      marchés financiers.
+    </p>
+
+    <section>
+      <h2>Liens officiels</h2>
+      <p class="warn">
+        Seuls les liens ci-dessous sont officiels. Je ne contacte jamais
+        personne en privé pour proposer un investissement, et je ne demande
+        jamais de clés privées.
+      </p>
+      <ul>
+        <li><a href="https://www.youtube.com/@Crypto_Oli">YouTube</a></li>
+        <li><a href="https://x.com/CryptoOli_">X</a></li>
+        <li><a href="https://whop.com/cryptooli/">Whop</a></li>
+      </ul>
+      <p class="note">Mis à jour le 18 juillet 2026.</p>
+    </section>
+
+    <footer>
+      <p>
+        Rien sur ce site ne constitue un conseil financier. Les
+        cryptomonnaies comportent un risque de perte en capital.
+      </p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 6rem 1.5rem 4rem;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      margin: 0;
+      letter-spacing: -0.02em;
+    }
+    .tagline {
+      color: var(--muted);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      margin: 0.5rem 0 3rem;
+    }
+    .intro { font-size: 1.15rem; }
+    section { margin-top: 4rem; }
+    h2 { font-size: 1.25rem; }
+    .warn { color: var(--muted); font-size: 0.95rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.4rem; }
+    .note { color: var(--muted); font-size: 0.85rem; }
+    footer {
+      margin-top: 5rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>
