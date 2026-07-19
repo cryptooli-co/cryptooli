@@ -1,0 +1,289 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Comprendre son portefeuille XRP — Crypto Oli"
+  description="Réserve de base, destination tag, trustlines, frais et suppression de compte. Tout ce qu'il faut savoir sur un portefeuille XRP Ledger, expliqué en français."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Comprendre son portefeuille XRP</h1>
+    <p class="chapeau">
+      Pourquoi une partie de vos XRP est bloquée, à quoi sert le destination tag,
+      et ce que coûte réellement une trustline.
+    </p>
+
+    <h2>Adresse, clé, portefeuille</h2>
+
+    <p>
+      Trois mots qu'on emploie souvent comme des synonymes, alors qu'ils désignent
+      des choses différentes.
+    </p>
+
+    <p>
+      <strong>L'adresse</strong> commence par un <code>r</code> et ressemble à
+      <code>rN7n7otQDd6FczFgLdSqtcsAUxDkw6fzRH</code>. C'est votre identifiant public.
+      Vous pouvez la partager sans aucun risque : elle sert uniquement à recevoir.
+    </p>
+
+    <p>
+      <strong>La clé privée</strong>, ou la seed dont elle dérive, est ce qui autorise
+      les transactions. Elle ne se partage jamais, sous aucun prétexte.
+    </p>
+
+    <p>
+      <strong>Le portefeuille</strong> est simplement le logiciel qui gère vos clés et
+      affiche votre solde. Vos XRP ne sont pas « dans » le portefeuille : ils sont
+      inscrits dans le registre, et le portefeuille détient la clé qui permet d'y
+      toucher. C'est pourquoi vous pouvez changer d'application sans jamais déplacer
+      vos fonds.
+    </p>
+
+    <h2>Pourquoi une partie de vos XRP est bloquée</h2>
+
+    <p>
+      C'est la première surprise de tout nouvel utilisateur : un compte XRPL ne peut
+      pas être vidé entièrement, et une partie du solde reste inutilisable.
+    </p>
+
+    <p>
+      Cette part s'appelle la réserve. Elle existe pour empêcher la création massive de
+      comptes vides qui alourdiraient le registre, que chaque validateur doit stocker.
+      Ce n'est pas un frais : cet XRP vous appartient toujours, il est simplement
+      immobilisé.
+    </p>
+
+    <p>La réserve se compose de deux parties.</p>
+
+    <p>
+      <strong>La réserve de base</strong> — 1 XRP, immobilisé tant que le compte existe.
+      C'est aussi le montant minimum à recevoir pour qu'une adresse soit activée : tant
+      qu'elle n'a pas reçu ce premier paiement, elle n'existe pas dans le registre.
+    </p>
+
+    <p>
+      <strong>La réserve de propriétaire</strong> — 0,2 XRP par objet que votre compte
+      possède dans le registre. Une trustline est un objet. Un ordre ouvert sur le DEX
+      en est un autre. Un escrow également.
+    </p>
+
+    <figure>
+      <img src="/schemas/reserve-xrp.svg" alt="Répartition d'un solde de 10 XRP entre réserve de base, réserve de propriétaire et solde disponible" width="700" height="300" loading="lazy" />
+      <figcaption>Le solde disponible est le solde total moins la réserve totale.</figcaption>
+    </figure>
+
+    <p>
+      Un point important : <strong>ces montants ont changé</strong>. Jusqu'en décembre
+      2024, la réserve de base était de 10 XRP et la réserve de propriétaire de 2 XRP
+      par objet. Les validateurs ont voté leur réduction, et le changement s'applique
+      rétroactivement à tous les comptes.
+    </p>
+
+    <p>
+      Beaucoup d'articles en ligne affichent encore les anciens montants. Si vous lisez
+      quelque part qu'il faut 10 XRP pour activer un compte, l'information est périmée.
+      Ces valeurs peuvent d'ailleurs évoluer à nouveau : elles sont fixées par vote des
+      validateurs.
+    </p>
+
+    <h2>Le destination tag</h2>
+
+    <p>
+      Voici l'erreur qui coûte le plus cher aux débutants sur le XRP Ledger.
+    </p>
+
+    <p>
+      Les plateformes d'échange ne créent pas une adresse XRPL par client. Elles
+      regroupent les fonds de tous leurs utilisateurs sur quelques adresses, et
+      distinguent les clients grâce à un numéro joint à chaque transaction : le
+      destination tag.
+    </p>
+
+    <p>
+      Si vous envoyez des XRP vers une plateforme <strong>sans ce tag</strong>, la
+      transaction est valide et arrive à destination — mais la plateforme ne sait pas à
+      qui créditer les fonds. Ils atterrissent dans un compte commun, sans propriétaire
+      identifié.
+    </p>
+
+    <p>
+      Ce n'est pas toujours définitif : certaines plateformes peuvent retrouver et
+      restituer les fonds, souvent après une procédure longue et parfois payante.
+      D'autres ne le font pas. Il n'existe aucune garantie.
+    </p>
+
+    <p>
+      La règle est simple : <strong>vers une plateforme d'échange, le destination tag
+      est obligatoire</strong>. Entre deux portefeuilles personnels, il ne sert
+      généralement à rien. En cas de doute, vérifiez auprès du destinataire avant
+      d'envoyer, pas après.
+    </p>
+
+    <h2>Les trustlines</h2>
+
+    <p>
+      Sur le XRP Ledger, le XRP est le seul actif natif. Tout le reste — stablecoins,
+      tokens communautaires, actifs tokenisés — existe sous forme de dettes émises par
+      une adresse.
+    </p>
+
+    <p>
+      Pour détenir un de ces actifs, vous devez d'abord ouvrir une ligne de confiance,
+      ou trustline, envers son émetteur. C'est une déclaration explicite : j'accepte de
+      détenir ce token émis par cette adresse précise.
+    </p>
+
+    <p>
+      Ce mécanisme a un avantage direct : personne ne peut vous envoyer un token que
+      vous n'avez pas accepté. Sur d'autres blockchains, n'importe qui peut déposer
+      n'importe quoi dans votre portefeuille.
+    </p>
+
+    <p>
+      Il a aussi un coût : chaque trustline immobilise 0,2 XRP de réserve. Dix
+      trustlines représentent 2 XRP bloqués. Fermer une trustline inutilisée libère le
+      montant correspondant — un nettoyage périodique vaut la peine si vous en avez
+      accumulé.
+    </p>
+
+    <p>
+      Une précaution qu'on ne répétera jamais assez : <strong>le nom d'un token ne
+      garantit rien</strong>. Seule l'adresse de l'émetteur compte. Deux tokens portant
+      le même nom mais émis par deux adresses différentes sont deux actifs sans aucun
+      rapport. Vérifiez toujours l'adresse émettrice auprès d'une source officielle du
+      projet avant d'ouvrir une trustline.
+    </p>
+
+    <h2>Les frais de transaction</h2>
+
+    <p>
+      Chaque transaction sur le XRPL a un coût minime — de l'ordre de 0,00001 XRP en
+      conditions normales.
+    </p>
+
+    <p>
+      Sa particularité : ce montant n'est versé à personne. Il est détruit, retiré
+      définitivement de la circulation. Ce n'est pas une rémunération de validateur,
+      c'est une protection contre le spam : inonder le réseau coûterait cher sans
+      profiter à quiconque.
+    </p>
+
+    <p>
+      Ce coût peut augmenter temporairement lorsque le réseau est très sollicité, puis
+      redescend. En usage normal, il reste négligeable.
+    </p>
+
+    <h2>Supprimer un compte</h2>
+
+    <p>
+      Si vous décidez d'abandonner une adresse, le XRPL permet de la supprimer et de
+      récupérer une partie de la réserve de base.
+    </p>
+
+    <p>
+      L'opération exige que le compte ne possède plus certains objets — il faut donc
+      fermer les trustlines et annuler les ordres au préalable — et elle coûte des frais
+      spécifiques, nettement plus élevés qu'une transaction ordinaire. Le solde restant
+      est envoyé vers une adresse de votre choix.
+    </p>
+
+    <p>
+      C'est utile pour faire le ménage parmi de vieux comptes de test. Ce n'est pas une
+      opération à réaliser à la légère : elle est définitive.
+    </p>
+
+    <h2>Choisir son portefeuille</h2>
+
+    <p>
+      Je ne recommanderai pas de marque en particulier — les meilleures options changent,
+      et ce qui convient à l'un ne convient pas à l'autre. Voici plutôt les critères qui
+      comptent.
+    </p>
+
+    <ul>
+      <li><strong>Vous détenez vos clés.</strong> Si le service peut geler votre compte ou vous en refuser l'accès, ce n'est pas un portefeuille, c'est un dépositaire.</li>
+      <li><strong>La récupération est possible.</strong> Vous devez pouvoir restaurer vos fonds ailleurs avec votre seed phrase, sans dépendre de l'application d'origine.</li>
+      <li><strong>Le code est auditable ou l'éditeur est établi.</strong> Un portefeuille apparu il y a trois mois et promu par publicité mérite une méfiance de principe.</li>
+      <li><strong>L'application vient de la source officielle.</strong> Les fausses applications de portefeuille sont courantes sur les boutiques mobiles. Passez toujours par le site du projet.</li>
+    </ul>
+
+    <h2>Ce qu'il faut retenir</h2>
+
+    <ul>
+      <li>Vos XRP vivent dans le registre, pas dans l'application. Le portefeuille ne détient que la clé.</li>
+      <li>1 XRP de réserve de base, plus 0,2 XRP par objet possédé. Bloqué, pas perdu.</li>
+      <li>Vers une plateforme d'échange, le destination tag n'est pas optionnel.</li>
+      <li>Une trustline coûte 0,2 XRP de réserve et n'engage que vous — vérifiez toujours l'émetteur.</li>
+      <li>Les frais sont détruits, pas versés. Ils protègent le réseau du spam.</li>
+    </ul>
+
+    <footer>
+      <p>
+        Rien dans cet article ne constitue un conseil financier. Les cryptomonnaies
+        comportent un risque de perte en capital. Les montants de réserve mentionnés
+        sont ceux en vigueur en juillet 2026 et peuvent évoluer par vote des validateurs.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    code {
+      background: #131f36;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.85em;
+      word-break: break-all;
+    }
+    figure {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+    }
+    figure img { width: 100%; height: auto; display: block; }
+    figcaption {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>
