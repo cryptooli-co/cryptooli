@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 380" role="img" aria-label="Comparaison entre garder ses actifs et fournir de la liquidité lorsque le token triple">
+  <style>
+    .ttl { font: 600 15px system-ui, sans-serif; fill: #e8ecf4; }
+    .lbl { font: 500 14px system-ui, sans-serif; fill: #e8ecf4; }
+    .sub { font: 400 12px system-ui, sans-serif; fill: #8b96ad; }
+    .val { font: 600 20px system-ui, sans-serif; fill: #e8ecf4; }
+    .warn { font: 600 14px system-ui, sans-serif; fill: #d98a4a; }
+    .ax { stroke: #33415c; stroke-width: 1.5; }
+  </style>
+
+  <text class="ttl" x="60" y="30">Le token passe de 1 $ à 3 $</text>
+  <text class="sub" x="60" y="52">Dépôt initial : 1 000 XRP + 1 000 tokens, soit 2 000 $</text>
+
+  <line class="ax" x1="60" y1="300" x2="640" y2="300"/>
+
+  <!-- barre HODL : 4000 -> hauteur 200 -->
+  <rect x="130" y="100" width="120" height="200" rx="6" fill="#4b5f85"/>
+  <text class="val" x="190" y="130" text-anchor="middle">4 000 $</text>
+  <text class="lbl" x="190" y="324" text-anchor="middle">Garder ses actifs</text>
+  <text class="sub" x="190" y="344" text-anchor="middle">1 000 XRP + 1 000 tokens</text>
+
+  <!-- barre LP : 3464 -> hauteur 173 -->
+  <rect x="400" y="127" width="120" height="173" rx="6" fill="#2f7dff"/>
+  <text class="val" x="460" y="157" text-anchor="middle">3 464 $</text>
+  <text class="lbl" x="460" y="324" text-anchor="middle">Fournir de la liquidité</text>
+  <text class="sub" x="460" y="344" text-anchor="middle">1 732 XRP + 577 tokens</text>
+
+  <!-- écart -->
+  <line x1="290" y1="100" x2="290" y2="127" stroke="#d98a4a" stroke-width="2"/>
+  <line x1="278" y1="100" x2="302" y2="100" stroke="#d98a4a" stroke-width="2"/>
+  <line x1="278" y1="127" x2="302" y2="127" stroke="#d98a4a" stroke-width="2"/>
+  <text class="warn" x="312" y="108">Écart : 536 $</text>
+  <text class="sub" x="312" y="126">soit −13,4 %</text>
+
+  <text class="sub" x="60" y="372">Les frais accumulés peuvent compenser cet écart — mais ce n'est jamais garanti.</text>
+</svg>

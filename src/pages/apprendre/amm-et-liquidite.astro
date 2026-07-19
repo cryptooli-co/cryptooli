@@ -1,0 +1,318 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Comment fonctionne un AMM sur le XRP Ledger — Crypto Oli"
+  description="Comprendre les pools de liquidité, la formation du prix, les frais et l'impermanent loss sur le XRP Ledger. Expliqué simplement, en français."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Comment fonctionne un AMM sur le XRP Ledger</h1>
+    <p class="chapeau">
+      Les pools de liquidité, la formation du prix, les frais et les risques.
+      Expliqué sans jargon, pour quelqu'un qui part de zéro.
+    </p>
+
+    <h2>Le problème avant la solution</h2>
+
+    <p>
+      Imaginez que vous vouliez échanger 100 XRP contre un autre actif. Sur un marché
+      traditionnel, il faut que quelqu'un, quelque part, veuille faire exactement
+      l'inverse au même moment et au même prix. Si personne ne se présente, votre
+      ordre attend. Parfois longtemps.
+    </p>
+
+    <p>
+      C'est le fonctionnement d'un carnet d'ordres : une file d'acheteurs, une file
+      de vendeurs, et un échange qui n'a lieu que lorsque les deux se rencontrent.
+      Ça marche très bien quand beaucoup de monde participe. Ça fonctionne mal quand
+      l'actif est peu échangé — et sur un registre comme le XRP Ledger, la majorité
+      des actifs sont dans ce cas.
+    </p>
+
+    <p>
+      Un AMM résout ce problème d'une manière contre-intuitive : il supprime la
+      contrepartie humaine.
+    </p>
+
+    <h2>L'idée du pool</h2>
+
+    <p>
+      AMM signifie <em>Automated Market Maker</em> — teneur de marché automatisé.
+      Plutôt que de mettre en relation deux personnes, le système met en place une
+      réserve commune contenant deux actifs. Par exemple, du XRP et un token quelconque.
+    </p>
+
+    <p>
+      Cette réserve s'appelle un pool. Elle est alimentée par des participants qu'on
+      appelle les fournisseurs de liquidité, ou LP. Chacun dépose une quantité des deux
+      actifs et reçoit en échange des parts du pool, proportionnelles à sa contribution.
+      Ces parts prennent la forme de jetons appelés LP tokens.
+    </p>
+
+    <figure>
+      <img src="/schemas/amm-pool.svg" alt="Un utilisateur dépose 100 XRP dans un pool et en retire 91 tokens" width="700" height="320" loading="lazy" />
+      <figcaption>Le pool est toujours disponible : aucune contrepartie humaine n'est nécessaire.</figcaption>
+    </figure>
+
+    <p>
+      Sur le XRP Ledger, deux règles structurelles encadrent ces pools. Au maximum un
+      des deux actifs peut être du XRP — l'autre est nécessairement un token. Et pour
+      une paire d'actifs donnée, il ne peut exister qu'un seul AMM dans le registre.
+      Impossible de créer deux pools concurrents sur la même paire, contrairement à ce
+      qui se pratique ailleurs.
+    </p>
+
+    <p>
+      Quand vous voulez échanger, vous ne négociez avec personne. Vous déposez un actif
+      dans le pool et vous en retirez l'autre. Le pool est toujours disponible, jour et
+      nuit, quel que soit le montant.
+    </p>
+
+    <h2>Comment le prix se forme</h2>
+
+    <p>Si personne ne fixe le prix, comment est-il déterminé ?</p>
+
+    <p>
+      Par le rapport entre les deux réserves. Le pool applique une règle simple : le
+      produit des deux quantités doit rester constant.
+    </p>
+
+    <p>
+      Prenons un pool contenant 1 000 XRP et 1 000 tokens. Le produit vaut 1 000 000.
+      Le prix implicite est de 1 pour 1.
+    </p>
+
+    <p>
+      Quelqu'un dépose 100 XRP. Le pool contient maintenant 1 100 XRP. Pour que le
+      produit reste à 1 000 000, il ne doit plus rester que 909 tokens. La personne
+      en retire donc 91.
+    </p>
+
+    <figure>
+      <img src="/schemas/amm-courbe.svg" alt="Courbe du produit constant montrant le déplacement du prix après un échange" width="700" height="360" loading="lazy" />
+      <figcaption>Chaque échange déplace la position le long de la courbe.</figcaption>
+    </figure>
+
+    <p>
+      Elle a déposé 100 XRP et reçu 91 tokens, alors que le prix affiché était de 1
+      pour 1. La différence s'explique par le fait que son propre échange a déplacé le
+      prix : elle a rendu le XRP plus abondant dans le pool, donc moins cher
+      relativement au token.
+    </p>
+
+    <p>
+      C'est ce qu'on appelle le slippage. Plus l'échange est gros par rapport à la
+      taille du pool, plus l'écart est important. C'est aussi pourquoi la profondeur
+      d'un pool compte autant : un pool de 100 000 XRP absorbe le même échange presque
+      sans bouger.
+    </p>
+
+    <p>
+      Ce mécanisme a une conséquence élégante. Si le prix dans le pool s'écarte du prix
+      du marché ailleurs, un arbitragiste a intérêt à venir échanger dans le sens qui
+      le ramène à l'équilibre — et il en tire un profit. Le pool se corrige donc tout
+      seul, sans que personne ne le pilote.
+    </p>
+
+    <h2>Ce que gagne un fournisseur de liquidité</h2>
+
+    <p>
+      Chaque échange effectué dans le pool prélève des frais. Sur le XRP Ledger, ces
+      frais sont fixés par vote des fournisseurs de liquidité, dans une fourchette
+      stricte allant de 0 % à 1 %, par incréments de 0,001 %.
+    </p>
+
+    <p>
+      Ces frais ne vont pas à un opérateur. Ils restent dans le pool, ce qui augmente
+      sa valeur totale. Comme les fournisseurs de liquidité détiennent des parts de ce
+      pool, leurs parts prennent mécaniquement de la valeur.
+    </p>
+
+    <p>
+      Concrètement : plus le pool est utilisé, plus les LP gagnent. Un pool où personne
+      n'échange ne rapporte rien.
+    </p>
+
+    <p>
+      C'est un point souvent mal compris. Fournir de la liquidité n'est pas un placement
+      à rendement garanti. C'est une activité dont le revenu dépend entièrement du
+      volume réel d'échanges — quelque chose que personne ne contrôle.
+    </p>
+
+    <h2>Ce qu'il risque : l'impermanent loss</h2>
+
+    <p>Voici la partie que beaucoup découvrent trop tard.</p>
+
+    <p>
+      Quand le prix d'un des deux actifs bouge fortement, la composition du pool se
+      rééquilibre automatiquement. Les arbitragistes retirent l'actif qui monte et
+      déposent celui qui baisse. Résultat : en tant que LP, vous vous retrouvez avec
+      proportionnellement moins de l'actif qui a performé et plus de celui qui a perdu.
+    </p>
+
+    <p>Un exemple chiffré.</p>
+
+    <p>
+      Vous déposez 1 000 XRP et 1 000 tokens dans un pool, alors que les deux valent
+      1 $. Votre dépôt vaut 2 000 $.
+    </p>
+
+    <p>
+      Le token triple. Il vaut maintenant 3 $. Après rééquilibrage par les arbitragistes,
+      votre part du pool contient environ 1 732 XRP et 577 tokens, soit une valeur de
+      3 464 $.
+    </p>
+
+    <p>
+      Si vous n'aviez rien fait et gardé vos actifs dans votre portefeuille, vous auriez
+      1 000 XRP à 1 $ plus 1 000 tokens à 3 $, soit 4 000 $.
+    </p>
+
+    <figure>
+      <img src="/schemas/amm-impermanent-loss.svg" alt="Comparaison entre garder ses actifs (4 000 $) et fournir de la liquidité (3 464 $)" width="700" height="380" loading="lazy" />
+      <figcaption>L'écart de 536 $ correspond à l'impermanent loss.</figcaption>
+    </figure>
+
+    <p>
+      Le mot <em>impermanent</em> prête à confusion. Il signifie que la perte disparaît
+      si le prix revient à son point de départ. Mais si vous retirez votre liquidité
+      avant ce retour, la perte devient bien réelle.
+    </p>
+
+    <p>
+      Dans cet exemple, l'écart représente 13,4 % de ce que vous auriez eu en ne faisant
+      rien. À noter : la documentation officielle du XRP Ledger n'emploie pas le terme
+      <em>impermanent loss</em> mais parle de risque de change. C'est la même réalité,
+      décrite plus sobrement.
+    </p>
+
+    <p>
+      Les frais accumulés peuvent compenser cet écart, parfois largement. Mais ce n'est
+      pas automatique, et cela dépend du volume échangé pendant la période. Fournir de
+      la liquidité sur un actif très volatil et peu échangé est le pire des deux mondes.
+    </p>
+
+    <h2>Ce qui est propre au XRP Ledger</h2>
+
+    <p>
+      Sur la plupart des blockchains, un AMM est un contrat intelligent déployé par une
+      équipe. Sur le XRP Ledger, il est intégré au protocole lui-même, depuis
+      l'activation de l'amendement XLS-30 le 22 mars 2024.
+    </p>
+
+    <p>Cette différence a plusieurs conséquences concrètes.</p>
+
+    <p>
+      <strong>Pas de risque de contrat.</strong> Il n'y a pas de code tiers susceptible
+      de contenir une faille. La logique fait partie du registre.
+    </p>
+
+    <p>
+      <strong>Les frais sont votés.</strong> Les fournisseurs de liquidité votent sur le
+      niveau de frais appliqué, chaque voix pondérée par le nombre de LP tokens détenus.
+      Le taux effectif est la moyenne de ces votes. Une limite existe cependant : seuls
+      les huit plus gros détenteurs sont comptabilisés. Si davantage de personnes votent,
+      les autres voix sont ignorées.
+    </p>
+
+    <p>
+      L'incitation est équilibrée. Des frais trop élevés poussent les échanges à passer
+      par le carnet d'ordres, où le prix sera meilleur. Des frais trop bas ne rémunèrent
+      plus les fournisseurs de liquidité.
+    </p>
+
+    <p>
+      <strong>Le carnet d'ordres et l'AMM coexistent.</strong> Sur le XRPL, un échange
+      peut être exécuté contre le carnet d'ordres classique, contre l'AMM, ou en
+      combinant les deux si cela donne un meilleur prix. Les deux systèmes ne se
+      remplacent pas, ils s'additionnent — c'est le protocole qui choisit automatiquement
+      le chemin le plus avantageux.
+    </p>
+
+    <p>
+      <strong>L'auction slot.</strong> C'est une particularité peu connue. Un fournisseur
+      de liquidité peut miser des LP tokens pour obtenir, pendant 24 heures, des frais
+      réduits à un dixième du taux normal. Les LP tokens misés retournent dans le pool,
+      ce qui bénéficie à l'ensemble des fournisseurs de liquidité.
+    </p>
+
+    <p>
+      L'objectif est double : récupérer une partie de la valeur que les arbitragistes
+      extraient habituellement des pools, et ramener plus rapidement le prix de l'AMM
+      vers celui des marchés extérieurs. Un seul compte peut détenir le slot à la fois,
+      mais il peut désigner jusqu'à quatre comptes supplémentaires pour en bénéficier.
+    </p>
+
+    <h2>Ce qu'il faut retenir</h2>
+
+    <ul>
+      <li>Un AMM remplace la rencontre entre acheteur et vendeur par une réserve permanente dans laquelle chacun peut puiser.</li>
+      <li>Le prix se forme mécaniquement, par le rapport entre les deux réserves. Personne ne le fixe.</li>
+      <li>Fournir de la liquidité rapporte des frais proportionnels au volume échangé — et expose à l'impermanent loss quand les prix divergent.</li>
+      <li>La profondeur du pool détermine la qualité des échanges : un pool profond absorbe les gros ordres sans déplacer le prix, un pool mince non.</li>
+      <li>Sur le XRP Ledger, l'AMM est natif depuis mars 2024 plutôt que déployé par un tiers, ce qui supprime une catégorie entière de risques — mais ne supprime ni la volatilité, ni l'impermanent loss.</li>
+    </ul>
+
+    <footer>
+      <p>
+        Rien dans cet article ne constitue un conseil financier. Fournir de la liquidité
+        comporte un risque de perte en capital.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    figure {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+    }
+    figure img { width: 100%; height: auto; display: block; }
+    figcaption {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>

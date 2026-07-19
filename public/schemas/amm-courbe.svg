@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" role="img" aria-label="Courbe du produit constant : le prix se déplace le long de la courbe lors d'un échange">
+  <style>
+    .ax { stroke: #33415c; stroke-width: 1.5; }
+    .grid { stroke: #1a2540; stroke-width: 1; }
+    .curve { stroke: #2f7dff; stroke-width: 2.5; fill: none; }
+    .lbl { font: 500 13px system-ui, sans-serif; fill: #e8ecf4; }
+    .sub { font: 400 12px system-ui, sans-serif; fill: #8b96ad; }
+    .ttl { font: 600 15px system-ui, sans-serif; fill: #e8ecf4; }
+  </style>
+
+  <text class="ttl" x="70" y="28">x · y = k  —  le produit reste constant</text>
+
+  <!-- grille -->
+  <line class="grid" x1="70" y1="100" x2="640" y2="100"/>
+  <line class="grid" x1="70" y1="170" x2="640" y2="170"/>
+  <line class="grid" x1="70" y1="240" x2="640" y2="240"/>
+
+  <!-- axes -->
+  <line class="ax" x1="70" y1="40" x2="70" y2="300"/>
+  <line class="ax" x1="70" y1="300" x2="650" y2="300"/>
+
+  <!-- courbe -->
+  <path class="curve" d="M 70.0,51.7 L 89.0,97.1 L 108.0,130.3 L 127.0,155.6 L 146.0,175.6 L 165.0,191.7 L 184.0,205.1 L 203.0,216.3 L 222.0,225.8 L 241.0,234.0 L 260.0,241.2 L 279.0,247.4 L 298.0,253.0 L 317.0,258.0 L 336.0,262.4 L 355.0,266.4 L 374.0,270.1 L 393.0,273.4 L 412.0,276.4 L 431.0,279.2 L 450.0,281.8 L 469.0,284.1 L 488.0,286.3 L 507.0,288.4 L 526.0,290.3 L 545.0,292.1 L 564.0,293.7 L 583.0,295.3 L 602.0,296.8 L 621.0,298.2 L 640.0,299.5"/>
+
+  <!-- point A -->
+  <circle cx="225.5" cy="227.4" r="5" fill="#e8ecf4"/>
+  <text class="lbl" x="238" y="220">Avant</text>
+  <text class="sub" x="238" y="238">1 000 / 1 000</text>
+
+  <!-- point B -->
+  <circle cx="251.4" cy="238.0" r="5" fill="#2f7dff"/>
+  <text class="lbl" x="330" y="252" fill="#2f7dff">Après l'échange</text>
+  <text class="sub" x="330" y="270">1 100 / 909</text>
+  <path d="M 258 240 L 324 248" stroke="#2f7dff" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+
+  <text class="sub" x="655" y="304" text-anchor="end">XRP dans le pool →</text>
+  <text class="sub" x="70" y="330">Plus le pool est profond, plus la courbe est plate : l'échange déplace moins le prix.</text>
+</svg>
