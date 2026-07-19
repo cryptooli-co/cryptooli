@@ -15,6 +15,11 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
+
+    <div class="site-footer">
+      <p>© 2026 Crypto Oli. Tous droits réservés.</p>
+      <p>Contenu éducatif. Ne constitue pas un conseil financier.</p>
+    </div>
     <style is:global>
       :root {
         --bg: #070c18;
@@ -32,6 +37,15 @@ const { title, description } = Astro.props;
         -webkit-font-smoothing: antialiased;
       }
       a { color: var(--accent); }
+      .site-footer {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 3rem;
+        color: var(--muted);
+        font-size: 0.8rem;
+        text-align: center;
+      }
+      .site-footer p { margin: 0.3rem 0; }
     </style>
   </body>
 </html>

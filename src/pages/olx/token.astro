@@ -1,0 +1,195 @@
+---
+import Base from '../../layouts/Base.astro';
+const issuer = 'rswiX7wDL25Go4wGdLJK1ssSMpUsRGosJR';
+---
+<Base
+  title="Le token OLX — informations vérifiables"
+  description="Adresse émettrice, offre, état du compte et risques du token OLX sur le XRP Ledger. Informations factuelles et vérifiables."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Le token OLX</h1>
+    <p class="chapeau">
+      Les informations vérifiables, les risques, et de quoi tout contrôler
+      vous-même. Cette page n'est pas une invitation à acheter.
+    </p>
+
+    <h2>Ce qu'est OLX</h2>
+
+    <p>
+      OLX est un token communautaire émis sur le XRP Ledger en mars 2025. Il est né de
+      la communauté Crypto Oli, construite depuis 2020 autour du partage gratuit de
+      contenu éducatif sur le XRP, les marchés financiers et le trading.
+    </p>
+
+    <p>
+      Il permet aux personnes qui le souhaitent de participer volontairement au
+      développement du projet. C'est tout ce qu'il est.
+    </p>
+
+    <h2>Ce qu'OLX n'est pas</h2>
+
+    <ul>
+      <li><strong>Ce n'est pas un investissement.</strong> Aucun rendement n'est promis, aucun n'est garanti.</li>
+      <li><strong>Ce n'est pas un droit de gouvernance.</strong> Détenir OLX ne confère aucun pouvoir de décision sur le projet.</li>
+      <li><strong>Ce n'est pas un titre de propriété.</strong> Il ne représente aucune part d'une entité.</li>
+      <li><strong>Ce n'est pas un système de redistribution.</strong> Les mécanismes de redistribution qui ont existé par le passé ont pris fin en juin 2026 et ne reviendront pas.</li>
+      <li><strong>Ce n'est pas nécessaire.</strong> Le contenu éducatif est gratuit et le restera, que vous déteniez OLX ou non.</li>
+    </ul>
+
+    <h2>Informations vérifiables</h2>
+
+    <div class="data">
+      <dl>
+        <dt>Réseau</dt>
+        <dd>XRP Ledger</dd>
+
+        <dt>Adresse émettrice</dt>
+        <dd class="addr">{issuer}</dd>
+
+        <dt>Création</dt>
+        <dd>Mars 2025</dd>
+
+        <dt>État du compte émetteur</dt>
+        <dd>Blackholé — clé maîtresse désactivée</dd>
+
+        <dt>Offre</dt>
+        <dd>Figée. Aucun nouveau token ne peut être créé.</dd>
+      </dl>
+    </div>
+
+    <p>
+      Vérifiez tout cela vous-même plutôt que de me croire sur parole :
+    </p>
+
+    <ul>
+      <li><a href={`https://xrpscan.com/account/${issuer}`} rel="noopener">Voir l'émetteur sur XRPScan</a></li>
+      <li><a href={`https://bithomp.com/explorer/${issuer}`} rel="noopener">Voir l'émetteur sur Bithomp</a></li>
+    </ul>
+
+    <p>
+      Ces explorateurs affichent l'offre exacte, le nombre de détenteurs, la
+      répartition et l'activité en temps réel. Ce sont des sources indépendantes de moi.
+    </p>
+
+    <h2>Deux précisions honnêtes</h2>
+
+    <p>
+      <strong>Le domaine de l'émetteur ne pointe pas vers ce site.</strong> Il pointe
+      vers la plateforme sur laquelle le token a été créé en 2025. Le compte étant
+      blackholé, ce champ ne peut plus jamais être modifié. C'est une illustration
+      concrète du compromis : figer l'offre fige aussi tout le reste.
+    </p>
+
+    <p>
+      <strong>Vérifiez toujours l'adresse, pas le nom.</strong> N'importe qui peut créer
+      un token appelé OLX. Seule l'adresse émettrice ci-dessus identifie le vrai. Si
+      vous ouvrez une trustline, comparez l'adresse caractère par caractère avec celle
+      de cette page.
+    </p>
+
+    <h2>Les risques</h2>
+
+    <p>
+      Ils sont réels et il n'y a aucune raison de les minimiser.
+    </p>
+
+    <ul>
+      <li><strong>Perte totale possible.</strong> La valeur d'un token communautaire peut tomber à zéro. Ce n'est pas une hypothèse théorique.</li>
+      <li><strong>Volatilité forte.</strong> Le prix évolue librement au rythme du marché, à la hausse comme à la baisse.</li>
+      <li><strong>Liquidité limitée.</strong> Un actif de petite taille est plus difficile à vendre en quantité sans affecter son prix. Consultez la profondeur réelle du marché avant d'engager quoi que ce soit.</li>
+      <li><strong>Concentration.</strong> Comme sur la plupart des petits projets, quelques adresses détiennent une part significative de l'offre. La répartition est publique sur les explorateurs.</li>
+      <li><strong>Dépendance à une personne.</strong> Le projet repose largement sur mon travail et ma présence. C'est une fragilité, pas une force.</li>
+      <li><strong>Aucune garantie de continuité.</strong> Aucun projet ne peut promettre d'exister dans cinq ans.</li>
+    </ul>
+
+    <h2>Évaluez-le comme n'importe quel autre</h2>
+
+    <p>
+      J'ai écrit un guide sur la façon d'évaluer un token sur le XRP Ledger. Il
+      s'applique à OLX exactement comme aux autres. Je vous encourage à l'utiliser
+      pour examiner ce projet de manière critique.
+    </p>
+
+    <p>
+      <a href="/apprendre/evaluer-un-token/">Comment évaluer un token sur le XRP Ledger →</a>
+    </p>
+
+    <p>
+      Si quelque chose sur cette page vous semble incomplet ou trompeur, dites-le-moi.
+      Une information corrigée vaut mieux qu'une information avantageuse.
+    </p>
+
+    <footer>
+      <p>
+        Rien sur cette page ne constitue un conseil financier, une recommandation
+        d'investissement ou une offre de vente. Les cryptomonnaies comportent un risque
+        de perte totale du capital engagé. N'engagez que ce que vous êtes prêt à perdre.
+      </p>
+      <p>Dernière mise à jour : juillet 2026.</p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    .data {
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0 2rem;
+    }
+    dl { margin: 0; }
+    dt {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 1.2rem;
+    }
+    dt:first-child { margin-top: 0; }
+    dd { margin: 0.3rem 0 0; }
+    .addr {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 0.85rem;
+      word-break: break-all;
+      color: var(--accent);
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>
