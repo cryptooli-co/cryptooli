@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 330" role="img" aria-label="Comparaison entre la clé maîtresse et la clé régulière sur le XRP Ledger">
+  <style>
+    .ttl { font: 600 15px system-ui, sans-serif; fill: #e8ecf4; }
+    .lbl { font: 600 14px system-ui, sans-serif; fill: #e8ecf4; }
+    .sub { font: 400 12.5px system-ui, sans-serif; fill: #8b96ad; }
+    .box { fill: #101a2e; stroke: #1e2c46; stroke-width: 1.5; }
+    .boxA { fill: #101a2e; stroke: #d98a4a; stroke-width: 1.5; }
+    .boxB { fill: #101a2e; stroke: #2f7dff; stroke-width: 1.5; }
+  </style>
+
+  <text class="ttl" x="60" y="30">Deux clés pour un même compte</text>
+
+  <!-- compte -->
+  <rect class="box" x="270" y="55" width="160" height="52" rx="10"/>
+  <text class="lbl" x="350" y="87" text-anchor="middle">Votre compte</text>
+
+  <!-- liens -->
+  <path d="M 300 107 L 200 150" stroke="#d98a4a" stroke-width="2" fill="none"/>
+  <path d="M 400 107 L 500 150" stroke="#2f7dff" stroke-width="2" fill="none"/>
+
+  <!-- master key -->
+  <rect class="boxA" x="55" y="152" width="270" height="128" rx="12"/>
+  <text class="lbl" x="75" y="180" fill="#d98a4a">Clé maîtresse</text>
+  <text class="sub" x="75" y="204">Ne peut jamais être changée.</text>
+  <text class="sub" x="75" y="226">Liée à l'adresse pour toujours.</text>
+  <text class="sub" x="75" y="256">À garder hors ligne.</text>
+
+  <!-- regular key -->
+  <rect class="boxB" x="378" y="152" width="270" height="128" rx="12"/>
+  <text class="lbl" x="398" y="180" fill="#2f7dff">Clé régulière</text>
+  <text class="sub" x="398" y="204">Peut être changée ou retirée</text>
+  <text class="sub" x="398" y="226">à tout moment.</text>
+  <text class="sub" x="398" y="256">À utiliser au quotidien.</text>
+
+  <text class="sub" x="350" y="312" text-anchor="middle">Si la clé régulière est compromise, la clé maîtresse permet de la remplacer.</text>
+</svg>

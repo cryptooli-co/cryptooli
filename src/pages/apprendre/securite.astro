@@ -1,0 +1,280 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Protéger ses cryptomonnaies : les erreurs qui coûtent cher — Crypto Oli"
+  description="Seed phrase, phishing, SIM swap, cold wallet, trustlines et clés du XRP Ledger. Les erreurs de sécurité les plus fréquentes, expliquées simplement en français."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Protéger ses cryptomonnaies : les erreurs qui coûtent cher</h1>
+    <p class="chapeau">
+      La plupart des pertes en crypto ne viennent pas du marché. Elles viennent
+      d'erreurs évitables, presque toujours les mêmes.
+    </p>
+
+    <h2>Le principe que tout le monde saute</h2>
+
+    <p>
+      En crypto, il n'existe aucun service client capable de vous rendre vos fonds.
+      Pas de reset de mot de passe, pas d'annulation de transaction, pas de recours.
+      Une opération signée est définitive.
+    </p>
+
+    <p>
+      C'est le prix de la décentralisation, et c'est un compromis assumé : personne
+      ne peut geler votre compte, mais personne ne peut non plus vous sauver. La
+      documentation du XRP Ledger le dit sans détour — il n'existe aucun
+      administrateur privilégié capable d'annuler une transaction une fois qu'elle
+      est appliquée.
+    </p>
+
+    <p>
+      Tout le reste de cet article découle de ce principe. Si vous ne retenez qu'une
+      chose : en crypto, la prévention est le seul recours qui existe.
+    </p>
+
+    <h2>La seed phrase : ce que c'est vraiment</h2>
+
+    <p>
+      Quand vous créez un portefeuille, on vous donne une suite de mots — douze ou
+      vingt-quatre selon les cas. C'est la seed phrase, aussi appelée phrase de
+      récupération.
+    </p>
+
+    <p>
+      Beaucoup la voient comme un mot de passe de secours. C'est une erreur de
+      compréhension. Cette phrase <strong>est</strong> votre portefeuille. Les mots
+      permettent de recalculer mathématiquement toutes vos clés privées, sur
+      n'importe quel appareil, sans rien d'autre. Celui qui les possède possède vos
+      fonds, immédiatement et sans limite.
+    </p>
+
+    <p>Ce qui découle de ça, et que trop de gens font quand même :</p>
+
+    <ul>
+      <li><strong>Jamais de capture d'écran.</strong> Elle se synchronise automatiquement vers Google Photos ou iCloud, et se retrouve sur un serveur que vous ne contrôlez pas.</li>
+      <li><strong>Jamais dans un courriel, une note, un message.</strong> Même à vous-même.</li>
+      <li><strong>Jamais saisie sur un site web.</strong> Aucun service légitime ne la demandera. Aucun. Une demande de seed phrase est, par définition, une tentative de vol.</li>
+      <li><strong>Sur papier, en plusieurs exemplaires, dans des lieux différents.</strong> Un incendie ou un dégât d'eau détruit une copie unique aussi sûrement qu'un vol.</li>
+    </ul>
+
+    <h2>Les trois façons de tout perdre</h2>
+
+    <p>
+      Presque toutes les pertes que j'ai vues se rangent dans l'une de ces trois
+      catégories.
+    </p>
+
+    <p>
+      <strong>Le faux site.</strong> Un lien reçu, une publicité sponsorisée en tête
+      des résultats de recherche, un domaine qui diffère d'une lettre. L'interface est
+      identique à l'originale. Vous connectez votre portefeuille, vous signez, tout
+      part. La parade est ennuyeuse mais efficace : accédez toujours aux sites
+      sensibles par vos propres favoris, jamais par un lien ou une recherche.
+    </p>
+
+    <p>
+      <strong>Le faux support.</strong> Vous posez une question publiquement sur
+      Discord, Telegram ou X. Dans les minutes qui suivent, quelqu'un vous écrit en
+      privé pour vous aider. Il est serviable, patient, et il finira par vous demander
+      votre seed phrase « pour vérifier » ou vous enverra un lien de « validation ».
+      Aucun projet sérieux ne contacte ses utilisateurs en premier par message privé.
+    </p>
+
+    <p>
+      <strong>La signature aveugle.</strong> Vous approuvez une transaction sans lire
+      ce qu'elle autorise réellement. Sur certaines blockchains, une seule signature
+      peut donner un accès illimité à vos actifs. Prenez le temps de lire ce que
+      demande chaque transaction, surtout si vous ne l'avez pas initiée vous-même.
+    </p>
+
+    <h2>Le SIM swap et le piège de la 2FA par SMS</h2>
+
+    <p>
+      Activer la double authentification est une bonne réflexe. La faire par SMS est
+      une mauvaise idée, et c'est un point que la plupart des gens découvrent trop tard.
+    </p>
+
+    <p>
+      Un SMS dépend de votre opérateur téléphonique. Un attaquant qui parvient à
+      convaincre le service client de transférer votre numéro vers une autre carte SIM
+      — avec quelques informations personnelles glanées en ligne — reçoit alors tous
+      vos codes. Il n'a jamais eu besoin de votre mot de passe.
+    </p>
+
+    <p>
+      Les personnes identifiables publiquement comme actives en crypto sont des cibles
+      privilégiées pour ce type d'attaque. Si vous parlez de crypto sur les réseaux
+      sociaux, considérez que vous êtes concerné.
+    </p>
+
+    <p>
+      La solution est simple : une application d'authentification, qui génère les codes
+      localement sur votre appareil. Rien à intercepter. Et pensez à sauvegarder cette
+      application ou ses codes de récupération — perdre son téléphone sans sauvegarde
+      revient à perdre l'accès à tous les comptes concernés.
+    </p>
+
+    <h2>Hot wallet et cold wallet</h2>
+
+    <p>
+      Un portefeuille chaud est connecté à internet : une application mobile, une
+      extension de navigateur. Pratique, rapide, exposé.
+    </p>
+
+    <p>
+      Un portefeuille froid garde les clés hors ligne, généralement sur un appareil
+      physique dédié. La signature se fait sur l'appareil lui-même, la clé privée ne
+      touche jamais votre ordinateur.
+    </p>
+
+    <p>
+      La bonne approche n'est pas de choisir, mais de répartir. Gardez sur le
+      portefeuille chaud ce que vous êtes prêt à perdre — de quoi échanger, tester,
+      participer. Mettez le reste au froid.
+    </p>
+
+    <p>
+      Une règle simple pour arbitrer : si perdre le contenu de votre portefeuille chaud
+      vous empêcherait de dormir, il y a trop dedans.
+    </p>
+
+    <h2>Ce qui est propre au XRP Ledger</h2>
+
+    <p>
+      Le XRPL a quelques particularités que peu de ressources francophones expliquent.
+      Elles méritent d'être connues.
+    </p>
+
+    <p>
+      <strong>La clé maîtresse ne peut jamais être changée.</strong> Elle est liée à
+      votre adresse de manière définitive. Si elle est compromise, vous ne pouvez pas
+      simplement la remplacer comme un mot de passe.
+    </p>
+
+    <figure>
+      <img src="/schemas/cles-xrpl.svg" alt="La clé maîtresse ne peut pas être changée, la clé régulière peut être remplacée à tout moment" width="700" height="330" loading="lazy" />
+      <figcaption>La clé régulière existe précisément pour protéger la clé maîtresse.</figcaption>
+    </figure>
+
+    <p>
+      <strong>La clé régulière est la parade.</strong> Le XRPL permet d'autoriser une
+      seconde paire de clés, appelée clé régulière, qui peut signer la plupart des
+      transactions à la place de la clé maîtresse. Elle peut être changée ou retirée à
+      tout moment.
+    </p>
+
+    <p>
+      La bonne pratique recommandée par la documentation officielle : garder la clé
+      maîtresse hors ligne, et utiliser la clé régulière au quotidien. Si cette
+      dernière est compromise, la clé maîtresse permet de la remplacer — et vous gardez
+      le contrôle de votre compte.
+    </p>
+
+    <p>
+      <strong>Les trustlines et les faux tokens.</strong> Sur le XRP Ledger, détenir un
+      token exige d'ouvrir une ligne de confiance avec son émetteur. Or n'importe qui
+      peut créer un token portant n'importe quel nom : le code de la devise ne garantit
+      rien, seul l'émetteur compte. Deux tokens nommés identiquement mais émis par deux
+      adresses différentes sont deux actifs sans aucun rapport.
+    </p>
+
+    <p>
+      Avant d'ouvrir une trustline, vérifiez toujours l'adresse exacte de l'émetteur
+      auprès d'une source officielle du projet. C'est le vecteur d'arnaque le plus
+      courant sur le XRPL.
+    </p>
+
+    <p>
+      <strong>Les dépôts non sollicités.</strong> Vous pouvez recevoir des tokens que
+      vous n'avez jamais demandés, souvent accompagnés d'un nom incitant à visiter un
+      site. Ne suivez jamais ces liens. Un dépôt entrant ne présente aucun risque en
+      soi ; c'est ce qu'il vous pousse à faire qui en présente un.
+    </p>
+
+    <h2>Liste de vérification</h2>
+
+    <ul class="check">
+      <li>Ma seed phrase est sur papier, en plusieurs exemplaires, dans des lieux distincts.</li>
+      <li>Elle n'existe sous aucune forme numérique — ni photo, ni note, ni courriel.</li>
+      <li>Ma 2FA passe par une application, pas par SMS.</li>
+      <li>J'ai sauvegardé mes codes de récupération, hors de mon ordinateur.</li>
+      <li>J'accède aux sites sensibles par mes favoris, jamais par une recherche ou un lien.</li>
+      <li>Je ne réponds jamais à un message privé non sollicité proposant de l'aide.</li>
+      <li>Je lis ce qu'autorise chaque transaction avant de signer.</li>
+      <li>Le gros de mes fonds est sur un portefeuille froid.</li>
+      <li>Sur le XRPL, j'ai vérifié l'adresse émettrice avant chaque trustline.</li>
+      <li>J'ai envisagé de configurer une clé régulière et de garder ma clé maîtresse hors ligne.</li>
+    </ul>
+
+    <p class="fin">
+      Aucune de ces mesures n'est compliquée. Elles demandent simplement d'être prises
+      avant l'incident plutôt qu'après — et c'est précisément ce qui les rend
+      difficiles.
+    </p>
+
+    <footer>
+      <p>
+        Rien dans cet article ne constitue un conseil financier. Les cryptomonnaies
+        comportent un risque de perte en capital.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    figure {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+    }
+    figure img { width: 100%; height: auto; display: block; }
+    figcaption {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    ul.check li { color: var(--text); }
+    .fin { margin-top: 2rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>
