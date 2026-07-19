@@ -1,0 +1,340 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Comment évaluer un token sur le XRP Ledger — Crypto Oli"
+  description="Vérifier l'émetteur, l'offre, la concentration et la liquidité d'un token XRPL. Les signaux d'alerte et les limites de l'analyse on-chain, expliqués en français."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Comment évaluer un token sur le XRP Ledger</h1>
+    <p class="chapeau">
+      Ce que les données publiques permettent de vérifier, ce qu'elles ne diront
+      jamais, et les signaux qui devraient toujours faire reculer.
+    </p>
+
+    <div class="note">
+      <p>
+        <strong>Précision utile.</strong> J'émets moi-même un token sur le XRP Ledger.
+        Les critères ci-dessous s'appliquent donc aussi à mon propre projet, et je vous
+        encourage à les utiliser pour l'évaluer comme n'importe quel autre. Un article
+        qui expliquerait comment juger les tokens des autres en s'exemptant lui-même
+        n'aurait aucune valeur.
+      </p>
+    </div>
+
+    <h2>Ce que le XRP Ledger rend vérifiable</h2>
+
+    <p>
+      Une bonne nouvelle avant tout : sur le XRPL, une grande partie de ce qui compte
+      est publique et consultable par n'importe qui, sans compétence technique
+      particulière.
+    </p>
+
+    <p>
+      Vous pouvez voir qui a émis un token, quand le compte a été créé, combien de
+      tokens existent, combien de personnes en détiennent, comment ils se répartissent,
+      et si l'émetteur peut encore en créer.
+    </p>
+
+    <p>
+      Des explorateurs comme XRPScan ou Bithomp affichent tout cela gratuitement. Il
+      suffit de savoir quoi regarder — c'est l'objet de cet article.
+    </p>
+
+    <h2>Vérifier l'émetteur</h2>
+
+    <p>
+      C'est le point de départ, et il est plus important que le nom du token.
+    </p>
+
+    <p>
+      Rappel de la <a href="/apprendre/portefeuille-xrp/">leçon sur le portefeuille</a> :
+      n'importe qui peut créer un token portant n'importe quel nom. Le code de la devise
+      ne garantit strictement rien. Seule l'adresse de l'émetteur identifie un actif de
+      manière unique. Deux tokens nommés identiquement mais émis par deux adresses
+      différentes sont deux choses sans aucun rapport.
+    </p>
+
+    <p>
+      Une distinction à faire au passage : le compte qui a <em>créé</em> l'émetteur
+      n'est pas l'émetteur. Un projet peut avoir un compte de développement, un compte
+      de trésorerie et un compte émetteur, chacun avec des paramètres différents.
+      Assurez-vous de regarder le bon — c'est l'adresse qui apparaît dans votre
+      trustline qui compte.
+    </p>
+
+    <p>
+      Une fois l'adresse en main, trois choses à regarder.
+    </p>
+
+    <p>
+      <strong>L'âge du compte.</strong> Un émetteur créé il y a trois jours et déjà
+      promu massivement mérite une méfiance de principe. Un compte ancien ne prouve rien
+      en soi, mais un compte très récent supprime toute possibilité de vérifier un
+      historique.
+    </p>
+
+    <p>
+      <strong>L'état de contrôle.</strong> C'est le point le plus important, et le moins
+      connu.
+    </p>
+
+    <figure>
+      <img src="/schemas/etats-emetteur.svg" alt="Trois états de contrôle d'un émetteur : contrôle total, clé régulière, ou blackholé" width="700" height="300" loading="lazy" />
+      <figcaption>L'état de contrôle détermine si l'offre peut encore augmenter.</figcaption>
+    </figure>
+
+    <p>
+      Tant que l'émetteur conserve le contrôle de son compte, il peut créer de nouveaux
+      tokens quand il le souhaite. L'offre affichée aujourd'hui n'est donc pas
+      nécessairement l'offre de demain.
+    </p>
+
+    <p>
+      Certains projets choisissent de « blackholer » leur émetteur : ils désactivent la
+      clé maîtresse et fixent la clé régulière sur une adresse dont personne ne possède
+      la clé privée. Le compte devient alors définitivement inutilisable, et l'offre
+      définitivement figée.
+    </p>
+
+    <p>
+      Attention à ne pas en tirer une conclusion trop simple. Un émetteur blackholé
+      garantit que l'offre ne bougera plus — ce n'est pas rien. Mais cela ne dit
+      absolument rien de la qualité du projet, de la sincérité de l'équipe ou de la
+      valeur du token. Beaucoup d'arnaques ont un émetteur blackholé. C'est une
+      condition parmi d'autres, pas un label de confiance.
+    </p>
+
+    <p>
+      <strong>Le blackhole fige tout, pas seulement l'offre.</strong> Un émetteur
+      blackholé ne peut plus modifier son domaine, corriger un paramètre, ni réagir à
+      une évolution du protocole. C'est un engagement définitif qui a un coût réel.
+      Certains projets conservent volontairement le contrôle pour pouvoir maintenir leur
+      émetteur — c'est un choix défendable s'il est expliqué. Le vrai critère n'est donc
+      pas « blackholé ou non », mais : le projet a-t-il explicité son choix, et ce choix
+      est-il cohérent avec ce qu'il promet ?
+    </p>
+
+    <p>
+      <strong>Un malentendu fréquent sur la clé régulière.</strong> Poser une clé
+      régulière ne réduit en rien les pouvoirs de l'émetteur. Tant que la clé maîtresse
+      reste active, elle peut créer des tokens, modifier les paramètres du compte, et
+      retirer la clé régulière elle-même. C'est un outil de sécurité pour le
+      propriétaire du compte, pas une protection pour les détenteurs du token.
+    </p>
+
+    <p>
+      Certains projets communiquent sur la mise en place d'une clé régulière comme s'il
+      s'agissait d'une garantie pour la communauté. Ce n'est pas le cas. Seule la
+      désactivation de la clé maîtresse change quelque chose.
+    </p>
+
+    <p>
+      <strong>L'attention à l'état intermédiaire.</strong> Un compte dont la clé
+      maîtresse est désactivée mais qui possède une clé régulière active n'est pas
+      blackholé. Le contrôle existe toujours, simplement ailleurs. Certains présentent
+      cet état comme équivalent à un blackhole — c'est faux, et c'est vérifiable.
+    </p>
+
+    <p>
+      <strong>Vérifiez sur plus d'un explorateur.</strong> Ils n'affichent pas tous les
+      mêmes informations. XRPScan signale explicitement un compte blackholé par un
+      bandeau et indique l'état de la clé maîtresse. Bithomp détaille séparément la clé
+      maîtresse, la clé régulière et la multisignature. Croiser deux sources prend une
+      minute et évite de conclure sur une information partielle.
+    </p>
+
+    <h2>L'offre et sa répartition</h2>
+
+    <p>
+      Combien de tokens existent, et surtout : qui les détient ?
+    </p>
+
+    <p>
+      La répartition est publique. Vous pouvez voir les plus gros détenteurs et la part
+      qu'ils représentent. C'est l'information la plus révélatrice, et la plus ignorée.
+    </p>
+
+    <p>
+      Si trois adresses détiennent 70 % de l'offre, une seule décision de leur part
+      suffit à effondrer le prix. Ce n'est pas une hypothèse théorique : c'est ce qui
+      arrive régulièrement.
+    </p>
+
+    <p>
+      Quelques nuances, cependant. Une adresse importante peut appartenir à une
+      plateforme d'échange, qui détient les fonds de milliers de clients — la
+      concentration est alors apparente, pas réelle. À l'inverse, une distribution qui
+      paraît large peut avoir été fabriquée en répartissant les tokens sur des dizaines
+      d'adresses contrôlées par la même personne. Les données montrent la structure,
+      pas les intentions.
+    </p>
+
+    <p>
+      Ce que vous cherchez n'est pas une répartition parfaite — elle n'existe presque
+      jamais. Vous cherchez à savoir si la concentration est cohérente avec ce que le
+      projet raconte de lui-même.
+    </p>
+
+    <h2>La liquidité</h2>
+
+    <p>
+      C'est le facteur le plus souvent négligé, et celui qui décide si vous pourrez
+      sortir de votre position.
+    </p>
+
+    <p>
+      Un prix affiché ne veut rien dire sans profondeur de marché. Si le pool ou le
+      carnet d'ordres ne contient que quelques centaines de dollars, vendre une position
+      modeste fera s'effondrer le prix — vous ne réaliserez jamais la valeur affichée.
+    </p>
+
+    <p>
+      Trois choses à regarder :
+    </p>
+
+    <ul>
+      <li><strong>La profondeur du pool AMM</strong>, s'il y en a un. C'est le montant réellement disponible en face de vous. Voir la <a href="/apprendre/amm-et-liquidite/">leçon sur les AMM</a>.</li>
+      <li><strong>Le carnet d'ordres</strong>, et notamment l'écart entre le meilleur achat et la meilleure vente. Un écart large signale un marché mince.</li>
+      <li><strong>Le volume, avec prudence.</strong> Un volume élevé peut être réel — ou produit par quelques adresses qui échangent entre elles. Comparez-le au nombre de détenteurs et à l'activité du projet.</li>
+    </ul>
+
+    <p>
+      Un test mental simple : si vous vouliez vendre la totalité de votre position
+      maintenant, à quel prix moyen sortiriez-vous réellement ? Si vous ne savez pas
+      répondre, vous ne connaissez pas la liquidité de l'actif que vous détenez.
+    </p>
+
+    <h2>Les signaux d'alerte</h2>
+
+    <p>
+      Ceux-ci ne sont pas techniques, mais ils sont au moins aussi fiables que les
+      données on-chain.
+    </p>
+
+    <ul>
+      <li><strong>Une promesse de rendement.</strong> Un projet qui annonce un pourcentage garanti décrit un mécanisme qui, dans la quasi-totalité des cas, dépend de l'arrivée de nouveaux entrants.</li>
+      <li><strong>De l'urgence.</strong> « Dernière chance », « il reste 48 heures », « avant l'explosion ». L'urgence sert à empêcher la vérification. Un projet solide n'a aucune raison de vous presser.</li>
+      <li><strong>Une communication centrée sur le prix.</strong> Si tout le contenu porte sur ce que le token va valoir plutôt que sur ce qu'il fait, il n'y a probablement rien derrière.</li>
+      <li><strong>Une équipe entièrement anonyme sans code public.</strong> L'anonymat seul n'est pas disqualifiant — beaucoup de projets légitimes le pratiquent. Mais anonymat plus absence totale de travail vérifiable ne laisse rien à évaluer.</li>
+      <li><strong>Aucune mention du risque.</strong> Un projet honnête reconnaît ce qui peut mal tourner. Un discours sans aucune réserve est un discours de vente.</li>
+      <li><strong>Des messages privés non sollicités.</strong> Voir la <a href="/apprendre/securite/">leçon sur la sécurité</a>.</li>
+    </ul>
+
+    <h2>Ce que les données ne diront jamais</h2>
+
+    <p>
+      Il faut être clair sur les limites de cet exercice, sinon il produit une confiance
+      mal placée.
+    </p>
+
+    <p>
+      L'analyse on-chain montre des structures, pas des intentions. Elle ne vous dira
+      pas si l'équipe est sérieuse, si le projet sera encore là dans deux ans, si ce qui
+      est promis sera livré, ni si quelqu'un compte vendre demain.
+    </p>
+
+    <p>
+      Un projet peut cocher toutes les cases techniques et échouer. Un autre peut avoir
+      une structure imparfaite et construire quelque chose de solide pendant des années.
+    </p>
+
+    <p>
+      Ce que ces vérifications permettent, c'est d'éliminer les cas manifestement
+      problématiques et de savoir dans quoi vous vous engagez. C'est déjà beaucoup. Ce
+      n'est pas une garantie, et personne ne devrait vous en vendre une.
+    </p>
+
+    <h2>Liste de vérification</h2>
+
+    <ul class="check">
+      <li>J'ai identifié l'adresse exacte de l'émetteur, pas seulement le nom du token.</li>
+      <li>J'ai vérifié cette adresse auprès d'une source officielle du projet.</li>
+      <li>Je sais depuis quand le compte émetteur existe.</li>
+      <li>Je sais si l'émetteur peut encore créer des tokens.</li>
+      <li>J'ai regardé la répartition entre les plus gros détenteurs.</li>
+      <li>Je sais quelle liquidité existe réellement en face de ma position.</li>
+      <li>Le projet ne promet aucun rendement et ne crée aucune urgence.</li>
+      <li>Il existe un travail vérifiable au-delà du token lui-même.</li>
+      <li>Le projet reconnaît publiquement les risques.</li>
+      <li>Je suis prêt à perdre entièrement ce que j'engage.</li>
+    </ul>
+
+    <p class="fin">
+      Aucune de ces vérifications ne prend plus de dix minutes. C'est peu comparé à ce
+      que coûte de les sauter — et c'est le seul moment où vous avez encore le choix.
+    </p>
+
+    <footer>
+      <p>
+        Rien dans cet article ne constitue un conseil financier ou une recommandation
+        d'investissement. Les tokens comportent un risque de perte totale du capital
+        engagé.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+    .note {
+      background: #0c1526;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 3rem;
+    }
+    .note p { margin: 0; font-size: 0.95rem; color: var(--muted); }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    figure {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+    }
+    figure img { width: 100%; height: auto; display: block; }
+    figcaption {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    .fin { margin-top: 2rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>

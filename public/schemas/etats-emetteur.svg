@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" role="img" aria-label="Trois états possibles du contrôle d'un compte émetteur sur le XRP Ledger">
+  <style>
+    .ttl { font: 600 15px system-ui, sans-serif; fill: #e8ecf4; }
+    .lbl { font: 600 13.5px system-ui, sans-serif; fill: #e8ecf4; }
+    .sub { font: 400 12px system-ui, sans-serif; fill: #8b96ad; }
+    .b1 { fill: #101a2e; stroke: #c25a5a; stroke-width: 1.5; }
+    .b2 { fill: #101a2e; stroke: #d98a4a; stroke-width: 1.5; }
+    .b3 { fill: #101a2e; stroke: #4a9e6a; stroke-width: 1.5; }
+  </style>
+
+  <text class="ttl" x="55" y="30">L'émetteur peut-il encore créer des tokens ?</text>
+
+  <rect class="b1" x="55" y="58" width="185" height="180" rx="12"/>
+  <text class="lbl" x="75" y="88" fill="#c25a5a">Contrôle total</text>
+  <text class="sub" x="75" y="116">Clé maîtresse active.</text>
+  <text class="sub" x="75" y="138">L'émetteur peut créer</text>
+  <text class="sub" x="75" y="158">de nouveaux tokens</text>
+  <text class="sub" x="75" y="178">à tout moment.</text>
+  <text class="sub" x="75" y="210">L'offre n'est pas fixe.</text>
+
+  <rect class="b2" x="258" y="58" width="185" height="180" rx="12"/>
+  <text class="lbl" x="278" y="88" fill="#d98a4a">Clé régulière</text>
+  <text class="sub" x="278" y="116">Maîtresse désactivée,</text>
+  <text class="sub" x="278" y="138">clé régulière active.</text>
+  <text class="sub" x="278" y="158">Le contrôle existe</text>
+  <text class="sub" x="278" y="178">toujours, ailleurs.</text>
+  <text class="sub" x="278" y="210">Qui détient la clé ?</text>
+
+  <rect class="b3" x="461" y="58" width="185" height="180" rx="12"/>
+  <text class="lbl" x="481" y="88" fill="#4a9e6a">Blackholé</text>
+  <text class="sub" x="481" y="116">Maîtresse désactivée,</text>
+  <text class="sub" x="481" y="138">clé régulière fixée sur</text>
+  <text class="sub" x="481" y="158">une adresse inutilisable.</text>
+  <text class="sub" x="481" y="190">Plus personne ne peut</text>
+  <text class="sub" x="481" y="210">créer de tokens.</text>
+
+  <text class="sub" x="55" y="278">Ces trois états sont publics et vérifiables sur n'importe quel explorateur.</text>
+</svg>
