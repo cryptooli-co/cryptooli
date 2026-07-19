@@ -1,0 +1,302 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Le XRP Ledger expliqué simplement — Crypto Oli"
+  description="Consensus sans minage, validateurs, UNL, relation avec Ripple et limites du réseau. Comprendre le XRP Ledger sans jargon, en français."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Le XRP Ledger expliqué simplement</h1>
+    <p class="chapeau">
+      Comment fonctionne un réseau sans minage, qui le valide réellement,
+      et quelle est la relation exacte entre Ripple et le XRPL.
+    </p>
+
+    <h2>Ce que c'est, en une phrase</h2>
+
+    <p>
+      Le XRP Ledger est un registre partagé, maintenu par des centaines d'ordinateurs
+      répartis dans le monde, qui enregistre qui possède quoi et qui a envoyé quoi
+      à qui.
+    </p>
+
+    <p>
+      Il est né en 2012, avant la plupart des réseaux qu'on connaît aujourd'hui. Il a
+      été conçu pour un usage précis : déplacer de la valeur rapidement et à très faible
+      coût. Pas pour exécuter des programmes complexes, pas pour tout faire — pour
+      régler des paiements.
+    </p>
+
+    <p>
+      Cette spécialisation explique la plupart de ses caractéristiques, y compris ses
+      limites.
+    </p>
+
+    <h2>Un consensus sans minage</h2>
+
+    <p>
+      Sur Bitcoin, des ordinateurs se livrent une course de calcul permanente pour
+      obtenir le droit d'ajouter un bloc. Cette course consomme énormément d'électricité,
+      et c'est précisément ce coût qui sécurise le réseau : attaquer devient trop cher.
+    </p>
+
+    <p>
+      Le XRP Ledger fonctionne autrement. Il n'y a ni mineurs, ni course, ni récompense
+      de bloc. Des serveurs appelés validateurs proposent en continu leur version du
+      prochain registre, et se mettent d'accord par vote. Quand un accord suffisant est
+      atteint, le registre est validé — en trois à cinq secondes environ.
+    </p>
+
+    <p>
+      Deux conséquences directes. La consommation énergétique est comparable à celle
+      d'un serveur de courriel ordinaire. Et il n'y a aucun XRP créé à chaque validation :
+      contrairement au bitcoin, l'offre n'augmente jamais.
+    </p>
+
+    <p>
+      Un détail qui étonne souvent : <strong>les validateurs ne sont pas rémunérés</strong>.
+      Faire tourner un validateur ne rapporte rien. Ceux qui le font — universités,
+      entreprises, plateformes d'échange, particuliers — le font parce qu'ils ont
+      intérêt à ce que le réseau fonctionne correctement.
+    </p>
+
+    <h2>Les validateurs et l'UNL</h2>
+
+    <p>
+      C'est le point le plus mal compris du XRP Ledger, et celui qui alimente les
+      débats les plus vifs. Il mérite d'être expliqué correctement.
+    </p>
+
+    <p>
+      N'importe qui peut faire tourner un validateur. Il en existe plus de 150 sur le
+      réseau. Mais un serveur ne peut pas raisonnablement écouter tout le monde : il
+      doit choisir un ensemble de validateurs auxquels il accorde sa confiance pour
+      déterminer quand un accord est atteint. Cette liste s'appelle l'UNL, pour
+      <em>Unique Node List</em>.
+    </p>
+
+    <p>
+      Chaque opérateur de serveur est libre de composer sa propre liste. En pratique,
+      la grande majorité utilise une liste par défaut publiée par des organisations
+      comme la XRPL Foundation ou Ripple. Cette liste par défaut compte une trentaine
+      de validateurs, dont un seul est opéré par Ripple.
+    </p>
+
+    <p>
+      Pour qu'un changement du protocole soit adopté, il faut l'accord d'au moins 80 %
+      de ces validateurs, maintenu pendant deux semaines. C'est ce mécanisme qui a par
+      exemple activé l'AMM natif en mars 2024, et abaissé les montants de réserve en
+      décembre 2024.
+    </p>
+
+    <h3>Le débat sur la décentralisation</h3>
+
+    <p>
+      En février 2026, cette architecture a fait l'objet d'un échange public entre
+      Justin Bons, fondateur de Cyber Capital, et David Schwartz, architecte principal
+      du XRPL. Les deux positions méritent d'être connues.
+    </p>
+
+    <p>
+      <strong>La critique</strong> : puisque la plupart des serveurs adoptent une liste
+      par défaut publiée par un petit nombre d'organisations, le contrôle réel serait
+      concentré. Bons parle d'un système plus proche d'une preuve d'autorité que d'un
+      réseau réellement ouvert, et range le XRPL aux côtés d'autres réseaux à
+      gouvernance structurée.
+    </p>
+
+    <p>
+      <strong>La réponse</strong> : Schwartz soutient que l'UNL sert à savoir quand un
+      accord est atteint, pas à autoriser qui participe. Il rappelle que les utilisateurs
+      restent libres d'adopter une autre liste si les validateurs en place se comportaient
+      malhonnêtement — au même titre que les utilisateurs de Bitcoin pourraient changer
+      d'algorithme face à une attaque des mineurs.
+    </p>
+
+    <p>
+      Le débat n'a pas été tranché, et il ne le sera probablement jamais de manière
+      définitive. Ce qui est vérifiable : le nombre de validateurs, leur diversité
+      géographique et organisationnelle, et qui les opère. Ces informations sont
+      publiques. C'est en les regardant que chacun peut se faire son propre avis, plutôt
+      qu'en croyant l'un ou l'autre camp.
+    </p>
+
+    <h2>XRP et XRPL : deux choses différentes</h2>
+
+    <p>La confusion la plus fréquente, et la plus simple à lever.</p>
+
+    <p>
+      <strong>Le XRP Ledger</strong> est le réseau, l'infrastructure, le registre.
+    </p>
+
+    <p>
+      <strong>Le XRP</strong> est l'actif natif qui circule dessus. Il sert à payer les
+      frais, à constituer la réserve des comptes, et à servir de monnaie pont entre deux
+      actifs dans le carnet d'ordres.
+    </p>
+
+    <p>
+      Cent milliards de XRP ont été créés au lancement du réseau, en une seule fois.
+      Il n'y en aura jamais davantage. Le nombre diminue même très lentement, puisque
+      les frais de transaction sont détruits plutôt que versés à quelqu'un — environ
+      14 millions de XRP ont ainsi disparu depuis 2012, ce qui reste marginal à
+      l'échelle des cent milliards.
+    </p>
+
+    <h2>Ce qu'on peut y faire</h2>
+
+    <p>
+      Le XRPL intègre nativement plusieurs fonctions qui, ailleurs, exigent des
+      contrats intelligents déployés par des tiers.
+    </p>
+
+    <ul>
+      <li><strong>Des paiements</strong> réglés en quelques secondes pour une fraction de centime.</li>
+      <li><strong>Un carnet d'ordres décentralisé</strong>, intégré au protocole depuis l'origine.</li>
+      <li><strong>Des tokens</strong>, émis par n'importe quelle adresse, détenus via une <a href="/apprendre/portefeuille-xrp/">trustline</a>.</li>
+      <li><strong>Des NFT</strong>, avec un standard natif plutôt qu'un contrat déployé.</li>
+      <li><strong>Un AMM</strong>, également natif — <a href="/apprendre/amm-et-liquidite/">expliqué en détail ici</a>.</li>
+      <li><strong>Des escrows</strong>, qui bloquent des fonds jusqu'à une date ou une condition.</li>
+    </ul>
+
+    <p>
+      L'avantage de cette approche est direct : pas de contrat tiers susceptible de
+      contenir une faille. La logique fait partie du protocole, auditée et exécutée par
+      tout le réseau.
+    </p>
+
+    <h2>Ripple et le XRP Ledger</h2>
+
+    <p>
+      Sujet sensible, souvent traité de façon caricaturale dans les deux sens. Voici
+      les faits.
+    </p>
+
+    <p>
+      Ripple est une entreprise. Le XRP Ledger est un réseau public. Ce sont deux choses
+      distinctes, mais leur histoire est liée : les créateurs du registre ont fondé
+      l'entreprise, et une grande partie des XRP créés au lancement lui a été attribuée.
+    </p>
+
+    <p>
+      En décembre 2017, face aux inquiétudes que suscitait cette concentration, Ripple
+      a placé 55 milliards de XRP sous séquestre — des contrats inscrits dans le registre
+      lui-même, libérant au maximum un milliard par mois. L'entreprise remet
+      systématiquement en séquestre une grande partie de ce qui est libéré, généralement
+      entre 60 et 80 %.
+    </p>
+
+    <p>
+      Mi-2026, il reste environ 38 milliards de XRP sous séquestre, sur une circulation
+      d'environ 62 milliards. Ripple détient par ailleurs des XRP dans ses comptes
+      opérationnels.
+    </p>
+
+    <p>
+      Deux constats à tenir ensemble, sans en sacrifier un pour l'autre. D'une part,
+      Ripple ne contrôle pas le réseau techniquement : elle opère un validateur sur la
+      trentaine que compte la liste par défaut, et ne peut imposer aucun changement
+      seule. D'autre part, sa position sur l'offre de XRP reste importante, et c'est
+      une donnée que tout détenteur devrait connaître.
+    </p>
+
+    <p>
+      Ces deux affirmations sont vraies simultanément. Les discours qui n'en retiennent
+      qu'une seule, quel que soit le camp, donnent une image incomplète.
+    </p>
+
+    <h2>Ses limites</h2>
+
+    <p>Aucun réseau n'est bon en tout. Celles du XRPL méritent d'être connues.</p>
+
+    <p>
+      <strong>Pas de contrats intelligents généralistes.</strong> Le XRPL fait bien ce
+      qu'il a été conçu pour faire, mais on n'y déploie pas librement des programmes
+      arbitraires comme sur Ethereum. Des travaux existent pour étendre ces capacités,
+      mais ce n'est pas la nature du réseau.
+    </p>
+
+    <p>
+      <strong>Un écosystème plus restreint.</strong> Moins d'applications, moins de
+      développeurs, moins d'outils que sur les réseaux les plus actifs. Cela s'améliore,
+      mais l'écart reste réel.
+    </p>
+
+    <p>
+      <strong>Une gouvernance discutée.</strong> Le modèle de l'UNL est efficace — il
+      permet d'adopter des changements complexes rapidement — mais il repose sur une
+      confiance explicite envers un ensemble de validateurs. C'est un compromis assumé,
+      pas une propriété neutre.
+    </p>
+
+    <p>
+      <strong>Une association forte à une entreprise.</strong> Techniquement discutable,
+      mais réelle dans la perception publique. Elle influence la façon dont le réseau
+      est jugé, indépendamment de ses qualités.
+    </p>
+
+    <h2>Ce qu'il faut retenir</h2>
+
+    <ul>
+      <li>Le XRP Ledger est un registre partagé, lancé en 2012, conçu pour les paiements rapides et peu coûteux.</li>
+      <li>Il n'y a ni minage, ni récompense : les validateurs se mettent d'accord par vote, en quelques secondes.</li>
+      <li>Plus de 150 validateurs existent ; une trentaine figurent sur la liste par défaut, dont un seul opéré par Ripple.</li>
+      <li>Cent milliards de XRP ont été créés au lancement. Aucun n'a été créé depuis, et les frais en détruisent lentement.</li>
+      <li>Ripple ne contrôle pas le réseau techniquement, mais détient une part importante de l'offre. Les deux sont vrais.</li>
+    </ul>
+
+    <footer>
+      <p>
+        Rien dans cet article ne constitue un conseil financier. Les chiffres cités
+        reflètent la situation en juillet 2026 et évoluent avec le temps.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.1rem;
+      margin-top: 2.5rem;
+      margin-bottom: 0.8rem;
+      color: var(--muted);
+    }
+    p { margin: 0 0 1.2rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>
