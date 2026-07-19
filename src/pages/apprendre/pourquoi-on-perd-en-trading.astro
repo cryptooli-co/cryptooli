@@ -1,0 +1,328 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Pourquoi la plupart des gens perdent en trading — Crypto Oli"
+  description="L'erreur la plus fréquente n'est pas de mal prédire le marché : c'est de trader sans avoir testé sa stratégie. Backtest, taille de position, effet de levier et biais expliqués."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Pourquoi la plupart des gens perdent en trading</h1>
+    <p class="chapeau">
+      Ce n'est presque jamais une question de prédiction. C'est une question de
+      méthode — et une erreur revient plus souvent que toutes les autres.
+    </p>
+
+    <h2>L'erreur que je vois le plus souvent</h2>
+
+    <p>
+      Quelqu'un décide de se mettre au trading. Il regarde des vidéos, lit des
+      articles, retient une approche qui lui semble sensée. Et il commence dès le
+      lendemain, avec de l'argent réel.
+    </p>
+
+    <p>
+      Il n'a jamais testé cette approche. Il ne sait pas si elle aurait fonctionné le
+      mois dernier, ni l'année dernière. Il ne sait pas combien de fois d'affilée elle
+      peut perdre. Il ne sait pas quelle perte maximale elle a historiquement produite.
+    </p>
+
+    <p>
+      Autrement dit : <strong>il n'a aucune raison de croire à ce qu'il fait.</strong>
+    </p>
+
+    <p>
+      Tout le reste découle de là. Et c'est un point plus important que n'importe quelle
+      question d'indicateur ou de point d'entrée.
+    </p>
+
+    <h2>Pourquoi ça déraille systématiquement</h2>
+
+    <p>
+      Sans test préalable, la première série de pertes devient impossible à
+      interpréter. Est-ce que la stratégie ne fonctionne pas ? Est-ce que le marché a
+      changé ? Est-ce que j'ai mal exécuté ? Aucune réponse n'est possible, parce
+      qu'il n'existe aucun point de comparaison.
+    </p>
+
+    <p>
+      Dans le doute, la réaction est presque toujours la même : abandonner et chercher
+      autre chose. Une nouvelle méthode, un nouvel indicateur, une nouvelle vidéo.
+    </p>
+
+    <p>
+      Puis le cycle recommence. Trois mois plus tard, la personne a essayé six approches
+      différentes, n'en a maîtrisé aucune, et son compte a fondu — non pas parce que le
+      marché lui a donné tort, mais parce qu'elle n'a jamais laissé le temps à quoi que
+      ce soit de se manifester.
+    </p>
+
+    <h2>Les séries de pertes sont normales</h2>
+
+    <p>
+      Voici ce que le backtest permet de comprendre, et qu'on ignore presque toujours
+      en commençant.
+    </p>
+
+    <p>
+      Prenons une stratégie qui réussit 55 % du temps. C'est un bon taux — beaucoup de
+      systèmes rentables font moins. Sur cent opérations, quelle est la probabilité de
+      subir cinq pertes consécutives à un moment ou à un autre ?
+    </p>
+
+    <figure>
+      <img src="/schemas/series-pertes.svg" alt="Probabilité de subir des séries de pertes consécutives avec une stratégie qui réussit 55 % du temps" width="700" height="300" loading="lazy" />
+      <figcaption>Une bonne stratégie traverse forcément de mauvaises séquences.</figcaption>
+    </figure>
+
+    <p>
+      Soixante-cinq pour cent. Et il y a près d'une chance sur cinq de subir sept pertes
+      d'affilée. Ces séries ne sont pas le signe d'un problème : elles sont la
+      conséquence mathématique du hasard appliqué à une suite d'événements.
+    </p>
+
+    <p>
+      Quelqu'un qui a testé sa stratégie sait cela. Quand la cinquième perte arrive, il
+      la reconnaît. Quelqu'un qui n'a rien testé conclut que ça ne marche pas — et il a
+      statistiquement tort, sans moyen de le savoir.
+    </p>
+
+    <p>
+      C'est exactement là que se joue la différence entre ceux qui durent et les autres.
+      Pas dans la qualité des analyses. Dans la capacité à ne pas abandonner au mauvais
+      moment.
+    </p>
+
+    <h2>Ce qu'est réellement un backtest</h2>
+
+    <p>
+      Le mot fait peur et évoque du code, des bases de données, des compétences
+      techniques. Ce n'est pas nécessaire pour commencer.
+    </p>
+
+    <p>
+      Un backtest, dans sa forme la plus simple, c'est : reprendre des données passées,
+      appliquer ses règles une opération à la fois, et noter les résultats. À la main,
+      dans un tableur, sur cent ou deux cents opérations. C'est fastidieux. C'est
+      justement le point.
+    </p>
+
+    <p>Ce que vous cherchez à obtenir, ce n'est pas un rendement. C'est cinq chiffres :</p>
+
+    <ul>
+      <li><strong>Le taux de réussite</strong> — combien d'opérations gagnantes en proportion.</li>
+      <li><strong>Le rapport gain/perte moyen</strong> — un taux de 40 % peut être excellent si les gains sont trois fois plus gros que les pertes.</li>
+      <li><strong>La plus longue série de pertes</strong> — celle que vous devrez traverser sans craquer.</li>
+      <li><strong>La perte maximale cumulée</strong> — de combien le compte a reculé dans le pire passage.</li>
+      <li><strong>Le nombre d'opérations</strong> — en dessous de cent, les résultats ne veulent pas dire grand-chose.</li>
+    </ul>
+
+    <p>
+      Deux précautions. Un backtest sur données passées ne garantit rien pour l'avenir :
+      il donne un ordre de grandeur, pas une promesse. Et il est très facile de se
+      mentir à soi-même en ajustant les règles jusqu'à ce que le résultat plaise — c'est
+      le piège principal de l'exercice.
+    </p>
+
+    <p>
+      Malgré ces limites, un backtest imparfait vaut infiniment mieux que rien. Il vous
+      donne la seule chose dont vous manquez au départ : une raison de tenir.
+    </p>
+
+    <h2>La taille de position</h2>
+
+    <p>
+      Deuxième source de destruction de comptes, et probablement la plus rapide.
+    </p>
+
+    <p>
+      Beaucoup de débutants réfléchissent en termes de « combien je peux gagner sur cette
+      opération ». La question utile est l'inverse : <strong>combien je perds si j'ai
+      tort, et combien de fois d'affilée puis-je avoir tort avant d'être hors jeu ?</strong>
+    </p>
+
+    <p>
+      Un exemple. Vous risquez 10 % de votre capital par opération. Le backtest montre
+      des séries de sept pertes possibles. Sept pertes consécutives à 10 % vous laissent
+      environ la moitié de votre capital — et il vous faudra doubler simplement pour
+      revenir au point de départ.
+    </p>
+
+    <p>
+      À 1 % par opération, les mêmes sept pertes coûtent environ 7 %. Désagréable,
+      parfaitement survivable, et vous êtes encore là quand la série tourne.
+    </p>
+
+    <p>
+      C'est le paramètre qui décide si vos erreurs sont des leçons ou des sorties
+      définitives. Il compte davantage que la qualité de votre analyse.
+    </p>
+
+    <h2>L'effet de levier</h2>
+
+    <p>
+      Le levier ne rend pas une bonne stratégie meilleure. Il accélère simplement ce
+      qui allait arriver.
+    </p>
+
+    <p>
+      Avec un levier élevé, une variation de prix ordinaire suffit à liquider une
+      position. Vous pouvez avoir parfaitement raison sur la direction et perdre quand
+      même, parce que le mouvement contraire temporaire a suffi à vous éjecter avant que
+      votre thèse ne se réalise.
+    </p>
+
+    <p>
+      Le levier transforme un problème d'analyse en problème de timing — et le timing
+      exact est bien plus difficile à obtenir que la direction générale.
+    </p>
+
+    <p>
+      Il a des usages légitimes, entre les mains de gens qui ont mesuré précisément ce
+      qu'ils font. Pour quelqu'un qui débute, c'est le moyen le plus rapide de
+      transformer une phase d'apprentissage en perte définitive.
+    </p>
+
+    <h2>Les biais qui coûtent le plus cher</h2>
+
+    <p>
+      <strong>Le biais de confirmation.</strong> Une fois la position ouverte, vous
+      cherchez les informations qui vous donnent raison et écartez les autres. Le même
+      graphique qui vous semblait ambigu devient soudain évident. Personne n'y échappe,
+      y compris ceux qui savent que ce biais existe.
+    </p>
+
+    <p>
+      <strong>L'aversion à la perte.</strong> On coupe ses gains rapidement, par peur de
+      les voir disparaître, et on laisse courir ses pertes, en espérant un retour. C'est
+      l'exact inverse de ce qu'il faudrait faire, et c'est le comportement spontané de
+      presque tout le monde.
+    </p>
+
+    <p>
+      <strong>Le trade de revanche.</strong> Après une perte, l'envie de la récupérer
+      immédiatement. La position suivante est plus grosse, moins réfléchie, prise sous
+      le coup de l'émotion. C'est ainsi que des comptes qui avaient perdu 5 % perdent
+      50 % dans la même journée.
+    </p>
+
+    <p>
+      La seule protection réelle contre ces trois biais n'est pas la volonté — c'est
+      d'avoir décidé à l'avance. Des règles écrites avant l'ouverture d'une position ne
+      négocient pas avec l'émotion du moment.
+    </p>
+
+    <h2>Ce qui distingue ceux qui durent</h2>
+
+    <p>
+      Ils jugent leurs décisions sur le processus, pas sur le résultat. Une bonne
+      décision peut produire une perte, une mauvaise décision peut produire un gain. Sur
+      quelques opérations, le hasard domine tout. Ce n'est que sur la durée que la
+      qualité du processus finit par se voir.
+    </p>
+
+    <p>
+      Ils tiennent un journal. Chaque opération, la raison de l'entrée, la raison de la
+      sortie, l'état d'esprit. Relu un mois plus tard, un journal révèle des schémas
+      qu'aucune mémoire ne conserve.
+    </p>
+
+    <p>
+      Ils changent rarement de méthode. Quand ils le font, c'est après avoir mesuré,
+      pas après une mauvaise semaine.
+    </p>
+
+    <p>
+      Et ils acceptent que ce soit lent. C'est peut-être le point le plus difficile,
+      parce que tout dans cet environnement — les réseaux sociaux, les captures d'écran
+      de gains, les promesses — pousse dans la direction opposée.
+    </p>
+
+    <h2>Les questions à se poser avant de commencer</h2>
+
+    <ul>
+      <li>Ai-je testé cette approche sur au moins cent opérations passées ?</li>
+      <li>Quelle est la plus longue série de pertes qu'elle a produite ?</li>
+      <li>Combien je perds si les dix prochaines opérations sont perdantes ?</li>
+      <li>Mes règles d'entrée et de sortie sont-elles écrites, ou décidées sur le moment ?</li>
+      <li>Est-ce que je peux me permettre de perdre entièrement ce capital ?</li>
+      <li>Est-ce que je saurais reconnaître que ma stratégie ne fonctionne plus — et à quel signal précis ?</li>
+    </ul>
+
+    <p>
+      Si plusieurs de ces réponses manquent, ce n'est pas grave. Cela signifie simplement
+      qu'il reste du travail à faire avant de risquer de l'argent — et ce travail coûte
+      beaucoup moins cher que l'apprentissage par la perte.
+    </p>
+
+    <p class="fin">
+      La conclusion la plus utile de cet article n'est peut-être pas de mieux trader.
+      C'est de constater que ça demande beaucoup plus de préparation qu'on ne l'imagine,
+      et de décider en connaissance de cause si on veut vraiment s'y engager. Ne pas
+      trader est une décision parfaitement valable.
+    </p>
+
+    <footer>
+      <p>
+        Rien dans cet article ne constitue un conseil financier ou une recommandation
+        d'investissement. Le trading comporte un risque élevé de perte en capital. La
+        majorité des comptes particuliers perdent de l'argent.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    figure {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+    }
+    figure img { width: 100%; height: auto; display: block; }
+    figcaption {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    .fin { margin-top: 2rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>

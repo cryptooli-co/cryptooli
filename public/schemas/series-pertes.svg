@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" role="img" aria-label="Probabilité de subir des séries de pertes consécutives avec une stratégie gagnante">
+  <style>
+    .ttl { font: 600 15px system-ui, sans-serif; fill: #e8ecf4; }
+    .sub { font: 400 12.5px system-ui, sans-serif; fill: #8b96ad; }
+    .lbl { font: 500 13px system-ui, sans-serif; fill: #e8ecf4; }
+    .val { font: 600 14px system-ui, sans-serif; fill: #ffffff; }
+  </style>
+
+  <text class="ttl" x="55" y="30">Une stratégie qui réussit 55 % du temps, sur 100 trades</text>
+  <text class="sub" x="55" y="52">Probabilité de subir au moins une série de pertes consécutives de cette longueur</text>
+
+  <!-- 3 pertes : 97% -->
+  <text class="lbl" x="55" y="104">3 pertes d'affilée</text>
+  <rect x="215" y="90" width="435" height="20" rx="4" fill="#1b2740"/>
+  <rect x="215" y="90" width="422" height="20" rx="4" fill="#2f7dff"/>
+  <text class="val" x="426" y="105" text-anchor="middle">97 %</text>
+
+  <!-- 5 pertes : 65% -->
+  <text class="lbl" x="55" y="154">5 pertes d'affilée</text>
+  <rect x="215" y="140" width="435" height="20" rx="4" fill="#1b2740"/>
+  <rect x="215" y="140" width="283" height="20" rx="4" fill="#2f7dff"/>
+  <text class="val" x="356" y="155" text-anchor="middle">65 %</text>
+
+  <!-- 7 pertes : 18% -->
+  <text class="lbl" x="55" y="204">7 pertes d'affilée</text>
+  <rect x="215" y="190" width="435" height="20" rx="4" fill="#1b2740"/>
+  <rect x="215" y="190" width="78" height="20" rx="4" fill="#d98a4a"/>
+  <text class="val" x="310" y="205" fill="#d98a4a">18 %</text>
+
+  <text class="sub" x="55" y="256">Ces séries ne signifient pas que la stratégie est cassée.</text>
+  <text class="sub" x="55" y="278">Sans backtest, rien ne permet de faire la différence.</text>
+</svg>
