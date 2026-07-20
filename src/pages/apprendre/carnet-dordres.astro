@@ -1,0 +1,286 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Le carnet d'ordres du XRP Ledger — Crypto Oli"
+  description="Le DEX natif du XRPL, les offres, l'auto-bridging, le pathfinding et la coexistence avec l'AMM. Expliqué simplement, en français."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Le carnet d'ordres du XRP Ledger</h1>
+    <p class="chapeau">
+      Le XRPL possède un marché décentralisé inscrit dans son protocole depuis 2012.
+      Comment il fonctionne, et ce qu'il fait que personne d'autre ne fait.
+    </p>
+
+    <h2>Un marché dans le protocole</h2>
+
+    <p>
+      Sur la plupart des blockchains, échanger deux actifs demande de passer par une
+      application déployée par une équipe : un contrat intelligent, avec sa propre
+      interface, ses propres règles et ses propres risques.
+    </p>
+
+    <p>
+      Sur le XRP Ledger, l'échange fait partie du registre lui-même. Il n'y a rien à
+      déployer, rien à approuver, aucun contrat tiers dans lequel déposer ses fonds.
+      Placer un ordre est une transaction du protocole, au même titre qu'un paiement.
+    </p>
+
+    <p>
+      Ce marché existe depuis le lancement du réseau, en 2012 — bien avant que le terme
+      « DEX » ne devienne courant. C'est probablement la caractéristique la plus
+      distinctive du XRPL, et l'une des moins connues.
+    </p>
+
+    <h2>Ce qu'est un carnet d'ordres</h2>
+
+    <p>
+      Le principe est celui de n'importe quelle bourse. D'un côté, ceux qui veulent
+      acheter, avec le prix maximum qu'ils acceptent de payer. De l'autre, ceux qui
+      veulent vendre, avec le prix minimum qu'ils acceptent de recevoir.
+    </p>
+
+    <p>
+      Quand une offre d'achat croise une offre de vente, l'échange se produit. Sinon,
+      les ordres attendent.
+    </p>
+
+    <p>
+      C'est l'inverse de la logique d'un <a href="/apprendre/amm-et-liquidite/">AMM</a>,
+      où l'on échange contre une réserve automatisée sans contrepartie humaine. Ici, il
+      faut quelqu'un en face — mais on choisit son prix exactement.
+    </p>
+
+    <p>
+      Deux notions à retenir pour lire un carnet d'ordres. L'<strong>écart</strong> —
+      la différence entre la meilleure offre d'achat et la meilleure offre de vente.
+      Plus il est large, plus le marché est mince. Et la <strong>profondeur</strong> —
+      la quantité disponible à chaque niveau de prix. C'est elle qui détermine si votre
+      ordre sera exécuté au prix affiché ou bien au-delà.
+    </p>
+
+    <h2>Une offre sur le XRPL</h2>
+
+    <p>
+      Quand vous placez un ordre, le protocole vérifie d'abord s'il existe des offres
+      déjà présentes à un prix aussi bon ou meilleur. Si oui, l'échange se fait
+      immédiatement. Ce qui n'a pas pu être exécuté reste inscrit dans le carnet, où il
+      attend une contrepartie.
+    </p>
+
+    <p>
+      Une offre en attente n'est pas gratuite : elle occupe un objet dans le registre,
+      et immobilise donc <strong>0,2 XRP de réserve</strong>, exactement comme une
+      trustline. Annuler l'offre libère ce montant. Si vous accumulez des ordres ouverts
+      oubliés, il y a peut-être quelques XRP à récupérer — voir la 
+      <a href="/apprendre/portefeuille-xrp/">leçon sur le portefeuille</a>.
+    </p>
+
+    <p>
+      Une particularité utile : le XRPL supprime automatiquement les
+      <strong> offres non financées</strong>. Si vous placez un ordre de vente puis que
+      vous dépensez les fonds ailleurs, l'offre devient invalide et disparaît d'elle-même
+      lorsqu'on essaie de l'exécuter. Le carnet ne se remplit pas d'ordres fantômes.
+    </p>
+
+    <h2>L'auto-bridging</h2>
+
+    <p>
+      C'est la fonctionnalité la plus originale du XRPL, et celle que presque personne
+      n'explique.
+    </p>
+
+    <p>
+      Le problème qu'elle résout est universel : plus il existe d'actifs, plus il existe
+      de paires possibles, et plus chacune se retrouve avec peu de liquidité. Un marché
+      direct entre deux tokens peu connus est presque toujours vide.
+    </p>
+
+    <p>
+      Le XRPL contourne ça en utilisant le XRP comme monnaie pont.
+    </p>
+
+    <figure>
+      <img src="/schemas/auto-bridging.svg" alt="Le XRP sert d'intermédiaire entre deux tokens qui n'ont pas de marché direct" width="700" height="320" loading="lazy" />
+      <figcaption>Le protocole assemble deux marchés actifs pour en créer un troisième.</figcaption>
+    </figure>
+
+    <p>
+      Concrètement : à chaque ordre entre deux tokens, le protocole vérifie
+      automatiquement si passer par le XRP donnerait un meilleur prix qu'un échange
+      direct. Si oui, il le fait. Vous n'avez rien à demander, rien à configurer, et
+      vous n'en voyez rien.
+    </p>
+
+    <p>
+      L'effet est considérable pour la liquidité de tout le réseau. Un teneur de marché
+      qui ne fournit de la liquidité que contre du XRP sert en pratique un très grand
+      nombre de paires, puisque chacune peut être reliée aux autres par ce pont. Une
+      poignée de marchés actifs contre XRP suffit à rendre échangeables des dizaines de
+      combinaisons qui n'existent nulle part explicitement.
+    </p>
+
+    <p>
+      C'est aussi ce qui donne au XRP une utilité concrète à l'intérieur du réseau,
+      indépendamment de son prix : il est le pont par défaut entre tous les actifs.
+    </p>
+
+    <h2>Le pathfinding</h2>
+
+    <p>
+      L'auto-bridging passe par une seule étape intermédiaire. Pour les paiements, le
+      XRPL va plus loin avec le pathfinding : il cherche le meilleur chemin en
+      enchaînant jusqu'à cinq étapes, à travers plusieurs actifs et plusieurs carnets
+      d'ordres.
+    </p>
+
+    <p>
+      Ce mécanisme permet une chose peu banale : payer dans une devise et faire recevoir
+      une autre au destinataire, la conversion se faisant automatiquement au meilleur
+      taux disponible au moment de la transaction.
+    </p>
+
+    <h2>Carnet d'ordres et AMM : les deux, pas l'un ou l'autre</h2>
+
+    <p>
+      Depuis l'activation de l'AMM natif en mars 2024, le XRPL dispose de deux systèmes
+      de liquidité. La question naturelle est : lequel choisir ?
+    </p>
+
+    <p>La réponse est qu'on ne choisit pas.</p>
+
+    <figure>
+      <img src="/schemas/routage-hybride.svg" alt="Le protocole compare le carnet d'ordres, l'AMM et l'auto-bridging pour exécuter au meilleur prix" width="700" height="300" loading="lazy" />
+      <figcaption>Un seul ordre peut être exécuté sur plusieurs sources à la fois.</figcaption>
+    </figure>
+
+    <p>
+      À chaque ordre, le protocole compare ce qu'offre le carnet d'ordres, ce qu'offre
+      l'AMM, et ce que donnerait un passage par le XRP. Il exécute au meilleur prix — et
+      peut combiner plusieurs sources dans une même transaction si c'est plus avantageux.
+    </p>
+
+    <p>
+      Cette intégration est faite dans le protocole, pas dans une application. Aucun
+      agrégateur tiers, aucune commission supplémentaire, aucune confiance à accorder à
+      un intermédiaire.
+    </p>
+
+    <h2>Pas de front-running</h2>
+
+    <p>
+      Un point technique qui a des conséquences très concrètes pour un utilisateur.
+    </p>
+
+    <p>
+      Sur les réseaux où un acteur choisit l'ordre des transactions dans un bloc, il
+      peut voir votre ordre avant qu'il ne soit exécuté et placer le sien juste avant
+      pour en tirer profit. C'est ce qu'on appelle le front-running, et c'est un coût
+      invisible mais réel pour les utilisateurs.
+    </p>
+
+    <p>
+      Le mécanisme de consensus du XRPL ne fonctionne pas ainsi : il n'y a pas de
+      proposant de bloc qui décide de l'ordre des transactions. Cette catégorie
+      d'extraction n'existe donc pas de la même façon.
+    </p>
+
+    <p>
+      À noter tout de même : l'arbitrage entre le prix d'un pool et celui du marché
+      reste possible et existe bel et bien. Ce qui disparaît, c'est la possibilité de se
+      placer devant un ordre précis en le voyant arriver.
+    </p>
+
+    <h2>Le coût</h2>
+
+    <p>
+      Placer un ordre coûte des frais de transaction de l'ordre de 0,00001 XRP, comme
+      n'importe quelle autre transaction. Ces frais sont détruits, pas versés à un
+      validateur.
+    </p>
+
+    <p>
+      Il n'y a aucune commission de plateforme, puisqu'il n'y a pas de plateforme.
+      Annuler un ordre non exécuté ne coûte que les frais de transaction, et libère les
+      0,2 XRP de réserve.
+    </p>
+
+    <p>
+      Si votre ordre est exécuté contre un pool AMM plutôt que contre une offre, les
+      frais du pool s'appliquent — entre 0 % et 1 % selon le vote de ses fournisseurs de
+      liquidité.
+    </p>
+
+    <h2>Ce qu'il faut retenir</h2>
+
+    <ul>
+      <li>Le XRPL possède un marché décentralisé inscrit dans son protocole depuis 2012. Aucun contrat tiers, aucune application intermédiaire.</li>
+      <li>Une offre en attente immobilise 0,2 XRP de réserve. L'annuler libère ce montant.</li>
+      <li>L'auto-bridging relie automatiquement les marchés en passant par le XRP quand c'est plus avantageux — sans que vous ayez à le demander.</li>
+      <li>Le pathfinding pousse la logique jusqu'à cinq étapes pour les paiements.</li>
+      <li>Carnet d'ordres et AMM ne s'opposent pas : le protocole exécute sur l'un, l'autre, ou les deux, selon ce qui donne le meilleur prix.</li>
+    </ul>
+
+    <footer>
+      <p>
+        Rien dans cet article ne constitue un conseil financier. Les cryptomonnaies
+        comportent un risque de perte en capital.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    figure {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+    }
+    figure img { width: 100%; height: auto; display: block; }
+    figcaption {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>

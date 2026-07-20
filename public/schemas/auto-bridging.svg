@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 320" role="img" aria-label="L'auto-bridging utilise le XRP comme monnaie pont entre deux tokens sans marché direct">
+  <style>
+    .ttl { font: 600 15px system-ui, sans-serif; fill: #e8ecf4; }
+    .lbl { font: 600 14px system-ui, sans-serif; fill: #e8ecf4; }
+    .sub { font: 400 12.5px system-ui, sans-serif; fill: #8b96ad; }
+    .box { fill: #101a2e; stroke: #1e2c46; stroke-width: 1.5; }
+    .xrp { fill: #101a2e; stroke: #2f7dff; stroke-width: 2; }
+  </style>
+
+  <text class="ttl" x="55" y="30">Vous voulez échanger le token A contre le token B</text>
+
+  <!-- ligne directe barrée -->
+  <rect class="box" x="55" y="62" width="120" height="52" rx="10"/>
+  <text class="lbl" x="115" y="94" text-anchor="middle">Token A</text>
+
+  <rect class="box" x="525" y="62" width="120" height="52" rx="10"/>
+  <text class="lbl" x="585" y="94" text-anchor="middle">Token B</text>
+
+  <line x1="185" y1="88" x2="515" y2="88" stroke="#4a5670" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="330" y1="74" x2="370" y2="102" stroke="#c25a5a" stroke-width="2.5"/>
+  <line x1="370" y1="74" x2="330" y2="102" stroke="#c25a5a" stroke-width="2.5"/>
+  <text class="sub" x="350" y="128" text-anchor="middle" fill="#c25a5a">Marché direct trop mince</text>
+
+  <!-- chemin via XRP -->
+  <rect class="box" x="55" y="185" width="120" height="52" rx="10"/>
+  <text class="lbl" x="115" y="217" text-anchor="middle">Token A</text>
+
+  <rect class="xrp" x="290" y="185" width="120" height="52" rx="10"/>
+  <text class="lbl" x="350" y="217" text-anchor="middle" fill="#2f7dff">XRP</text>
+
+  <rect class="box" x="525" y="185" width="120" height="52" rx="10"/>
+  <text class="lbl" x="585" y="217" text-anchor="middle">Token B</text>
+
+  <path d="M 180 211 L 282 211" stroke="#2f7dff" stroke-width="2" fill="none"/>
+  <path d="M 282 211 l -9 -5 v 10 z" fill="#2f7dff"/>
+  <path d="M 415 211 L 517 211" stroke="#2f7dff" stroke-width="2" fill="none"/>
+  <path d="M 517 211 l -9 -5 v 10 z" fill="#2f7dff"/>
+
+  <text class="sub" x="55" y="278">Le protocole assemble automatiquement les deux marchés actifs contre XRP</text>
+  <text class="sub" x="55" y="298">et exécute l'échange, sans que vous ayez rien à faire.</text>
+</svg>
