@@ -1,0 +1,333 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Pourquoi le nombre de détenteurs d'un token ne veut rien dire | Crypto Oli"
+  description="Un token affiche 529 détenteurs. La moitié d'entre eux possèdent moins d'un dixième de token. Comment lire ce chiffre correctement sur le XRP Ledger, et par quoi le remplacer."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Pourquoi le nombre de détenteurs d'un token ne veut rien dire</h1>
+
+    <p class="chapeau">
+      C'est le premier chiffre qu'on regarde pour juger si un projet a une communauté.
+      C'est aussi l'un des plus trompeurs. Voici ce qu'il compte réellement,
+      pourquoi il est presque toujours gonflé, et par quelle mesure le remplacer.
+    </p>
+
+    <h2>Le problème</h2>
+
+    <p>
+      Vous découvrez un token. Vous ouvrez un explorateur, et vous lisez : 529 détenteurs.
+      Le chiffre paraît modeste mais réel. Vous en concluez que quelques centaines de
+      personnes ont mis de l'argent dans ce projet.
+    </p>
+
+    <p>
+      Cette conclusion est presque toujours fausse. Pas parce que l'explorateur ment,
+      mais parce qu'il répond à une question différente de celle que vous vous posez.
+      Vous demandez combien de personnes tiennent ce token. Il répond combien de
+      portefeuilles en contiennent une quantité non nulle. Ce n'est pas la même chose,
+      et l'écart entre les deux peut atteindre un facteur cinq.
+    </p>
+
+    <h2>Ce qu'un « détenteur » signifie sur le XRP Ledger</h2>
+
+    <p>
+      Sur le XRP Ledger, un portefeuille ne peut pas recevoir un token par accident.
+      Il doit d'abord déclarer qu'il accepte de le détenir, en ouvrant ce qu'on appelle
+      une <strong>ligne de confiance</strong>, ou trustline. C'est une entrée inscrite
+      dans le registre qui dit : ce portefeuille autorise ce token, émis par cette
+      adresse précise, jusqu'à une certaine quantité.
+    </p>
+
+    <p>
+      Cette mécanique est une bonne chose. Elle explique pourquoi le XRP Ledger n'est
+      pas envahi de jetons non sollicités comme d'autres réseaux, et elle a un coût :
+      chaque ligne de confiance immobilise une petite quantité de XRP tant qu'elle
+      reste ouverte. Ce point est détaillé dans la leçon sur
+      <a href="/apprendre/portefeuille-xrp/">le portefeuille XRP</a>.
+    </p>
+
+    <p>
+      Conséquence directe : toutes les lignes de confiance ouvertes vers un émetteur
+      sont publiques et se listent intégralement. C'est cette liste que les explorateurs
+      utilisent pour afficher un nombre de détenteurs. Ils comptent les lignes dont le
+      solde est supérieur à zéro.
+    </p>
+
+    <p>
+      Le compte est exact. C'est son interprétation qui pose problème.
+    </p>
+
+    <h2>Pourquoi ce compte est gonflé</h2>
+
+    <p>
+      Trois mécanismes ordinaires gonflent le chiffre, et ils sont présents sur
+      pratiquement tous les tokens un peu anciens.
+    </p>
+
+    <p>
+      <strong>Les distributions gratuites.</strong> Beaucoup de projets ont distribué
+      des tokens à leur communauté, par récompense ou par
+      <a href="/apprendre/glossaire/">airdrop</a>. Chaque destinataire devient un
+      détenteur au sens de l'explorateur, qu'il ait demandé ces tokens ou non, qu'il
+      s'en soucie ou non.
+    </p>
+
+    <p>
+      <strong>Les soldes résiduels.</strong> Quand quelqu'un revend sa position, il
+      reste souvent des miettes : un arrondi, une fraction non vendue, le reliquat
+      d'un échange. Un portefeuille qui contient 0,03 token après avoir tout liquidé
+      compte exactement autant qu'un portefeuille qui en contient cent mille.
+    </p>
+
+    <p>
+      <strong>Les lignes jamais refermées.</strong> Refermer une ligne de confiance
+      demande une transaction volontaire. Presque personne ne le fait. Les portefeuilles
+      de gens partis depuis longtemps restent donc visibles indéfiniment.
+    </p>
+
+    <h2>Un exemple chiffré</h2>
+
+    <p>
+      Prenons un cas réel : le token OLX, que j'émets moi-même, relevé le 20 juillet 2026.
+      J'utilise mon propre token précisément parce que je peux en publier les chiffres
+      sans les choisir.
+    </p>
+
+    <figure>
+      <img src="/schemas/detenteurs-entonnoir.svg"
+           alt="785 lignes de confiance ouvertes, 529 avec un solde positif, 98 au-dessus de 1 000 tokens, 31 au-dessus de 10 000, 7 au-dessus de 100 000." />
+      <figcaption>
+        Le même token, compté de cinq façons différentes. Les deux premières lignes
+        sont celles qu'affichent les outils publics.
+      </figcaption>
+    </figure>
+
+    <p>
+      785 lignes de confiance sont ouvertes. 255 d'entre elles ont un solde de zéro :
+      des gens entrés puis complètement sortis. Restent 529 portefeuilles à solde positif,
+      et c'est ce nombre qui serait affiché comme « nombre de détenteurs ».
+    </p>
+
+    <p>
+      Le solde médian de ces 529 portefeuilles est de <strong>0,17 token</strong>.
+    </p>
+
+    <p>
+      Autrement dit : la moitié des détenteurs possèdent moins de deux dixièmes de token.
+      Au cours du moment, cela représente moins d'un millième de XRP. Ce ne sont pas des
+      positions. Ce sont des traces.
+    </p>
+
+    <p>
+      En comptant par seuil, le portrait devient lisible : 98 portefeuilles au-dessus de
+      1 000 tokens, 31 au-dessus de 10 000, 7 au-dessus de 100 000. La base réelle n'est
+      pas de 529 personnes. Elle est d'environ une centaine, dont une trentaine avec une
+      position qui compte pour elles.
+    </p>
+
+    <p>
+      L'écart entre 529 et 98 n'a rien d'exceptionnel. C'est la situation normale d'un
+      token qui a distribué des récompenses puis traversé quelques cycles.
+    </p>
+
+    <h2>La mesure qui règle le problème</h2>
+
+    <p>
+      La <strong>médiane</strong> est la valeur qui coupe une série en deux : la moitié
+      des portefeuilles sont en dessous, la moitié au-dessus. Elle diffère de la moyenne,
+      qui additionne tout et divise par le nombre.
+    </p>
+
+    <p>
+      Sur les mêmes 529 portefeuilles, la moyenne ressort à 4 302 tokens. La médiane, à
+      0,17. Le même ensemble de données produit deux chiffres séparés par un facteur
+      vingt-cinq mille.
+    </p>
+
+    <figure>
+      <img src="/schemas/distribution-mediane.svg"
+           alt="Nuage de points montrant la majorité des portefeuilles agglutinés près de zéro, la médiane collée à l'origine et la moyenne déplacée vers la droite." />
+      <figcaption>
+        La moyenne est tirée vers le haut par quelques grosses positions. La médiane,
+        elle, décrit le portefeuille typique.
+      </figcaption>
+    </figure>
+
+    <p>
+      Une moyenne se laisse déplacer par quelques valeurs extrêmes. Une médiane, non.
+      C'est pour cette raison qu'on parle de salaire médian et non de salaire moyen quand
+      on veut décrire une population réelle.
+    </p>
+
+    <p>
+      D'où deux réflexes utiles devant n'importe quel token :
+    </p>
+
+    <ul>
+      <li>
+        Un nombre de détenteurs annoncé sans solde médian ne décrit rien. Demandez le
+        second avant de croire le premier.
+      </li>
+      <li>
+        La seule mesure honnête d'une base d'utilisateurs est le nombre de portefeuilles
+        au-dessus d'un seuil qui a du sens. Un seuil qui représente au moins quelques
+        dollars.
+      </li>
+    </ul>
+
+    <h2>Le chiffre que personne n'affiche</h2>
+
+    <p>
+      Il y a une donnée que les explorateurs ne montrent jamais et qui est pourtant
+      parlante : le nombre de lignes de confiance ouvertes dont le solde est tombé à zéro.
+    </p>
+
+    <p>
+      Ce sont des gens qui sont entrés, puis totalement sortis. Sur l'exemple ci-dessus,
+      ils représentent un tiers des lignes ouvertes. Suivi dans le temps, ce chiffre
+      indique si un projet perd encore des participants ou si l'hémorragie s'est arrêtée.
+      Aucun indicateur de prix ne dit cela.
+    </p>
+
+    <h2>Les limites de cette lecture</h2>
+
+    <p>
+      Compter les portefeuilles n'est pas compter les personnes, et rien ne permet de
+      combler cet écart.
+    </p>
+
+    <p>
+      Une même personne peut détenir dix portefeuilles. Un seul portefeuille peut
+      appartenir à une plateforme d'échange et représenter des milliers de clients.
+      Un solde important peut être un contrat, un pool de liquidité ou une réserve de
+      projet plutôt qu'un investisseur.
+    </p>
+
+    <p>
+      Le pool d'un <a href="/apprendre/amm-et-liquidite/">AMM</a> mérite une attention
+      particulière : il détient souvent une part considérable de l'offre, mais ce n'est
+      pas un détenteur. C'est un réservoir. L'inclure dans le calcul de concentration
+      fausse complètement le résultat, et il faut donc l'exclure explicitement.
+    </p>
+
+    <p>
+      Enfin, une distribution large ne dit rien de la qualité d'un projet. Un token peut
+      être détenu par des milliers de portefeuilles et ne servir à rien. Ces chiffres
+      servent à éviter de se faire raconter une histoire, pas à valider un
+      investissement. Les autres critères sont réunis dans la leçon
+      <a href="/apprendre/evaluer-un-token/">comment évaluer un token</a>.
+    </p>
+
+    <h2>Vérifier soi-même</h2>
+
+    <p>
+      Toutes les données de cette page sont publiques et gratuites. Un explorateur comme
+      XRPScan ou Bithomp affiche les lignes de confiance d'un émetteur, et les soldes
+      complets s'obtiennent avec la bibliothèque officielle du XRP Ledger en une
+      quarantaine de lignes de Python, sans inscription ni clé.
+    </p>
+
+    <p>
+      Les chiffres cités ici datent du 20 juillet 2026 et auront changé. La méthode,
+      elle, ne changera pas.
+    </p>
+
+    <h2>Ce qu'il faut retenir</h2>
+
+    <ul>
+      <li>
+        Un « détenteur » au sens des explorateurs est un portefeuille avec un solde non
+        nul, aussi minuscule soit-il.
+      </li>
+      <li>
+        Les distributions gratuites et les soldes résiduels gonflent ce chiffre sur
+        pratiquement tous les tokens un peu anciens.
+      </li>
+      <li>
+        Le solde médian révèle immédiatement si un nombre de détenteurs a du sens.
+        S'il est proche de zéro, le chiffre affiché ne décrit rien.
+      </li>
+      <li>
+        La bonne mesure est le nombre de portefeuilles au-dessus d'un seuil réel.
+      </li>
+      <li>
+        Les lignes de confiance à solde nul mesurent l'attrition, et personne ne les
+        affiche.
+      </li>
+    </ul>
+
+    <footer>
+      <p>
+        Ce contenu est éducatif et ne constitue pas un conseil financier. Les
+        cryptomonnaies présentent un risque de perte totale du capital. Les chiffres
+        cités correspondent à un relevé daté et évoluent en permanence : vérifiez toujours
+        l'état courant sur un explorateur avant toute décision.
+      </p>
+    </footer>
+  </main>
+</Base>
+
+<style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+    .note {
+      background: #0c1526;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 3rem;
+    }
+    .note p { margin: 0; font-size: 0.95rem; color: var(--muted); }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    figure {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+    }
+    figure img { width: 100%; height: auto; display: block; }
+    figcaption {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    .fin { margin-top: 2rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
