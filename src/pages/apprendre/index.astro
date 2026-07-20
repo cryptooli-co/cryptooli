@@ -1,0 +1,174 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const sections = [
+  {
+    titre: 'Fondations',
+    intro: "À lire dans l'ordre si vous partez de zéro.",
+    lecons: [
+      {
+        url: '/apprendre/xrp-ledger/',
+        titre: 'Le XRP Ledger expliqué simplement',
+        desc: "Comment fonctionne un réseau sans minage, qui le valide réellement, et quelle est la relation exacte entre Ripple et le XRPL."
+      },
+      {
+        url: '/apprendre/securite/',
+        titre: 'Protéger ses cryptomonnaies',
+        desc: "Seed phrase, phishing, SIM swap, cold wallet et clés du XRP Ledger. Les erreurs les plus fréquentes et comment les éviter."
+      },
+      {
+        url: '/apprendre/portefeuille-xrp/',
+        titre: 'Comprendre son portefeuille XRP',
+        desc: "Pourquoi une partie de vos XRP est bloquée, à quoi sert le destination tag, et ce que coûte réellement une trustline."
+      }
+    ]
+  },
+  {
+    titre: 'Le fonctionnement du marché',
+    intro: "Comment les échanges se font sur le XRP Ledger.",
+    lecons: [
+      {
+        url: '/apprendre/carnet-dordres/',
+        titre: "Le carnet d'ordres du XRP Ledger",
+        desc: "Le marché décentralisé inscrit dans le protocole depuis 2012, l'auto-bridging et le pathfinding."
+      },
+      {
+        url: '/apprendre/amm-et-liquidite/',
+        titre: 'Comment fonctionne un AMM',
+        desc: "Les pools de liquidité, la formation du prix, les frais, et l'impermanent loss expliqué avec un exemple chiffré."
+      },
+      {
+        url: '/apprendre/evaluer-un-token/',
+        titre: 'Comment évaluer un token',
+        desc: "Vérifier l'émetteur, l'offre, la concentration et la liquidité. Les signaux d'alerte et les limites de l'analyse on-chain."
+      }
+    ]
+  },
+  {
+    titre: 'Trading',
+    intro: "Ce qui fait perdre, avant ce qui ferait gagner.",
+    lecons: [
+      {
+        url: '/apprendre/pourquoi-on-perd-en-trading/',
+        titre: 'Pourquoi la plupart des gens perdent',
+        desc: "L'erreur la plus fréquente n'est pas de mal prédire le marché : c'est de trader sans avoir testé sa stratégie."
+      }
+    ]
+  }
+];
+
+const total = sections.reduce((n, s) => n + s.lecons.length, 0);
+---
+<Base
+  title="Apprendre — XRP, XRPL et trading | Crypto Oli"
+  description="Leçons gratuites en français sur le XRP Ledger, la sécurité, les portefeuilles, les AMM, le carnet d'ordres et le trading. Sans inscription, sans publicité."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Apprendre</h1>
+    <p class="chapeau">
+      {total} leçons gratuites sur le XRP, le XRP Ledger et les marchés.
+      Sans inscription, sans publicité, sans traqueur.
+    </p>
+
+    {sections.map((section) => (
+      <section>
+        <h2>{section.titre}</h2>
+        <p class="intro">{section.intro}</p>
+        <div class="liste">
+          {section.lecons.map((lecon) => (
+            <a class="carte" href={lecon.url}>
+              <span class="carte-titre">{lecon.titre}</span>
+              <span class="carte-desc">{lecon.desc}</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <footer>
+      <p>
+        De nouvelles leçons sont ajoutées régulièrement. Si vous trouvez une erreur
+        dans ce que j'écris, dites-le-moi — je préfère une correction à une bonne
+        réputation.
+      </p>
+      <p>
+        Rien sur ce site ne constitue un conseil financier. Les cryptomonnaies
+        comportent un risque de perte en capital.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+    section { margin-top: 3.5rem; }
+    h2 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin: 0 0 0.4rem;
+    }
+    .intro {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0 0 1.5rem;
+    }
+    .liste { display: flex; flex-direction: column; gap: 0.8rem; }
+    .carte {
+      display: block;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem;
+      text-decoration: none;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .carte:hover {
+      border-color: var(--accent);
+      background: #101c33;
+    }
+    .carte-titre {
+      display: block;
+      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.4rem;
+    }
+    .carte-desc {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    footer {
+      margin-top: 4.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer p { margin: 0 0 0.8rem; }
+  </style>
+</Base>
