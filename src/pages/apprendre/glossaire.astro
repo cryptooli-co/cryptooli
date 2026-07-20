@@ -1,0 +1,228 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const termes = [
+  { t: "Amendement", d: "Modification du protocole du XRP Ledger. Elle doit être approuvée par au moins 80 % des validateurs de la liste par défaut, pendant deux semaines consécutives, avant de s'activer.", lien: "/apprendre/xrp-ledger/" },
+  { t: "AMM", d: "Automated Market Maker, ou teneur de marché automatisé. Une réserve de deux actifs dans laquelle on échange sans contrepartie humaine. Natif sur le XRP Ledger depuis mars 2024.", lien: "/apprendre/amm-et-liquidite/" },
+  { t: "Arbitrage", d: "Profiter d'un écart de prix entre deux marchés en achetant sur l'un et vendant sur l'autre. C'est ce qui ramène le prix d'un pool AMM vers celui du marché." },
+  { t: "Auto-bridging", d: "Mécanisme du XRP Ledger qui utilise automatiquement le XRP comme monnaie intermédiaire entre deux tokens quand cela donne un meilleur prix qu'un échange direct.", lien: "/apprendre/carnet-dordres/" },
+  { t: "Backtest", d: "Appliquer les règles d'une stratégie à des données passées pour mesurer ce qu'elle aurait produit. Sans backtest, rien ne permet de distinguer une mauvaise passe normale d'une stratégie qui ne fonctionne pas.", lien: "/apprendre/pourquoi-on-perd-en-trading/" },
+  { t: "Blackholé", d: "Se dit d'un compte dont la clé maîtresse est désactivée et la clé régulière fixée sur une adresse inutilisable. Plus personne ne peut le contrôler. Pour un émetteur, cela fige définitivement l'offre du token.", lien: "/apprendre/evaluer-un-token/" },
+  { t: "Blockchain", d: "Registre partagé et infalsifiable, maintenu par un réseau d'ordinateurs plutôt que par une autorité centrale. Le XRP Ledger en est une, avec un mécanisme de validation qui lui est propre." },
+  { t: "Burn", d: "Destruction définitive d'unités d'un actif. Sur le XRP Ledger, les frais de transaction sont brûlés plutôt que versés à un validateur." },
+  { t: "Capitalisation", d: "Prix d'une unité multiplié par la quantité en circulation. Un chiffre théorique : il ne correspond pas à la somme qu'on pourrait réellement obtenir en vendant, surtout sur un marché peu liquide." },
+  { t: "Carnet d'ordres", d: "Liste des offres d'achat et de vente en attente pour une paire d'actifs. Le XRP Ledger en possède un dans son protocole depuis 2012.", lien: "/apprendre/carnet-dordres/" },
+  { t: "Clé maîtresse", d: "La clé principale d'un compte XRPL. Elle ne peut jamais être changée, car elle est liée à l'adresse. À conserver hors ligne.", lien: "/apprendre/securite/" },
+  { t: "Clé privée", d: "Le secret qui autorise les transactions depuis un compte. Elle ne se partage jamais. Qui la détient contrôle les fonds." },
+  { t: "Clé publique", d: "Dérivée de la clé privée, elle permet de vérifier une signature sans révéler le secret. C'est d'elle que découle l'adresse d'un compte." },
+  { t: "Clé régulière", d: "Seconde paire de clés qu'un compte XRPL peut autoriser pour signer à la place de la clé maîtresse. Elle peut être changée ou retirée à tout moment.", lien: "/apprendre/securite/" },
+  { t: "Cold wallet", d: "Portefeuille dont les clés restent hors ligne, généralement sur un appareil dédié. La signature se fait sur l'appareil, la clé ne touche jamais l'ordinateur.", lien: "/apprendre/securite/" },
+  { t: "Consensus", d: "Processus par lequel les validateurs se mettent d'accord sur le contenu du prochain registre. Sur le XRPL, il ne repose ni sur du minage ni sur une mise en jeu de fonds.", lien: "/apprendre/xrp-ledger/" },
+  { t: "Destination tag", d: "Numéro joint à un paiement pour identifier le bénéficiaire chez un destinataire qui regroupe les fonds de plusieurs clients. Obligatoire vers une plateforme d'échange.", lien: "/apprendre/portefeuille-xrp/" },
+  { t: "DEX", d: "Decentralized Exchange, marché décentralisé. Sur le XRP Ledger, il fait partie du protocole plutôt que d'être une application déployée par une équipe.", lien: "/apprendre/carnet-dordres/" },
+  { t: "Drawdown", d: "Recul maximal d'un capital entre un sommet et le creux qui suit. C'est l'indicateur qui dit si une stratégie est supportable dans la durée, pas seulement rentable sur le papier.", lien: "/apprendre/pourquoi-on-perd-en-trading/" },
+  { t: "Effet de levier", d: "Emprunter pour augmenter la taille d'une position. Il n'améliore pas une stratégie, il accélère simplement ce qui allait arriver — dans les deux sens.", lien: "/apprendre/pourquoi-on-perd-en-trading/" },
+  { t: "Émetteur", d: "Adresse qui crée un token sur le XRP Ledger. Seule cette adresse identifie un token de façon unique — le nom, lui, ne garantit rien.", lien: "/apprendre/evaluer-un-token/" },
+  { t: "Escrow", d: "Mécanisme natif du XRPL qui bloque des fonds jusqu'à une date ou une condition. C'est ce que Ripple utilise pour ses réserves de XRP." },
+  { t: "Frais de transaction", d: "Coût minime prélevé à chaque transaction XRPL, de l'ordre de 0,00001 XRP. Il est détruit, pas versé à un validateur — c'est une protection contre le spam." },
+  { t: "Hot wallet", d: "Portefeuille connecté à internet : application mobile, extension de navigateur. Pratique et rapide, mais exposé.", lien: "/apprendre/securite/" },
+  { t: "Impermanent loss", d: "Écart entre fournir de la liquidité et simplement conserver ses actifs, lorsque leur prix relatif change. La perte disparaît si le prix revient à son point de départ — d'où le mot « impermanent ».", lien: "/apprendre/amm-et-liquidite/" },
+  { t: "KYC", d: "Know Your Customer. Procédure de vérification d'identité imposée aux plateformes réglementées. Certains services XRPL affichent un statut KYC vérifié pour une adresse." },
+  { t: "Liquidité", d: "Capacité à échanger un actif sans faire bouger son prix. Un actif peu liquide peut afficher un prix élevé et rester impossible à vendre en quantité." },
+  { t: "LP token", d: "Jeton représentant une part d'un pool de liquidité. Sa valeur suit celle du pool, frais accumulés inclus.", lien: "/apprendre/amm-et-liquidite/" },
+  { t: "Market maker", d: "Participant qui place en continu des offres d'achat et de vente pour permettre aux autres d'échanger. Il se rémunère sur l'écart entre les deux." },
+  { t: "Mint", d: "Création d'un actif, généralement un NFT, sur une blockchain." },
+  { t: "Multisignature", d: "Configuration exigeant plusieurs signatures pour valider une transaction. Utile pour un compte partagé ou pour renforcer la sécurité d'une trésorerie." },
+  { t: "NFT", d: "Jeton non fongible : chaque unité est distincte des autres. Le XRP Ledger dispose d'un standard natif, sans contrat à déployer." },
+  { t: "Offre", d: "Ordre placé sur le carnet d'ordres du XRPL. Une offre en attente immobilise 0,2 XRP de réserve, libérés à son annulation.", lien: "/apprendre/carnet-dordres/" },
+  { t: "Pathfinding", d: "Recherche automatique du meilleur chemin pour un paiement, à travers jusqu'à cinq étapes intermédiaires et plusieurs carnets d'ordres.", lien: "/apprendre/carnet-dordres/" },
+  { t: "Phishing", d: "Tentative de vol par imitation : faux site, faux support, faux message. La première cause de perte de fonds en crypto.", lien: "/apprendre/securite/" },
+  { t: "Pool", d: "Réserve de deux actifs alimentée par des fournisseurs de liquidité, dans laquelle les échanges se font automatiquement.", lien: "/apprendre/amm-et-liquidite/" },
+  { t: "Profondeur", d: "Quantité disponible à chaque niveau de prix. Elle détermine si un ordre sera exécuté au prix affiché ou bien au-delà." },
+  { t: "Réserve de base", d: "Montant de XRP immobilisé tant qu'un compte existe. Fixé à 1 XRP depuis décembre 2024. Il n'est pas perdu, seulement bloqué.", lien: "/apprendre/portefeuille-xrp/" },
+  { t: "Réserve de propriétaire", d: "0,2 XRP immobilisés par objet que possède un compte : trustline, offre ouverte, escrow. Fermer l'objet libère le montant.", lien: "/apprendre/portefeuille-xrp/" },
+  { t: "Rippling", d: "Mécanisme permettant à deux détenteurs d'un même token de se payer, l'émetteur servant d'intermédiaire passif. Sans rapport avec l'entreprise Ripple.", lien: "/apprendre/rippling/" },
+  { t: "Seed phrase", d: "Suite de douze ou vingt-quatre mots permettant de recalculer toutes les clés privées d'un portefeuille. Elle n'est pas un mot de passe de secours : elle est le portefeuille.", lien: "/apprendre/securite/" },
+  { t: "Séquence", d: "Numéro d'ordre des transactions d'un compte. Il garantit qu'elles s'exécutent dans le bon ordre et ne peuvent pas être rejouées." },
+  { t: "SIM swap", d: "Attaque consistant à faire transférer un numéro de téléphone vers une autre carte SIM pour intercepter les codes envoyés par SMS.", lien: "/apprendre/securite/" },
+  { t: "Slippage", d: "Écart entre le prix attendu et le prix réellement obtenu. Il augmente avec la taille de l'ordre et diminue avec la profondeur du marché.", lien: "/apprendre/amm-et-liquidite/" },
+  { t: "Stablecoin", d: "Token conçu pour suivre la valeur d'une monnaie, généralement le dollar. Sur le XRPL, il existe sous forme de token émis par une adresse, ce qui suppose de faire confiance à son émetteur." },
+  { t: "Trustline", d: "Ligne de confiance. Déclaration explicite d'accepter de détenir un token précis, émis par une adresse précise. Elle immobilise 0,2 XRP de réserve.", lien: "/apprendre/portefeuille-xrp/" },
+  { t: "UNL", d: "Unique Node List. Ensemble de validateurs auxquels un serveur accorde sa confiance pour déterminer qu'un accord est atteint.", lien: "/apprendre/xrp-ledger/" },
+  { t: "Validateur", d: "Serveur qui participe au consensus du XRP Ledger. Plus de 150 existent, et ils ne reçoivent aucune rémunération.", lien: "/apprendre/xrp-ledger/" },
+  { t: "Volatilité", d: "Amplitude des variations de prix. Une forte volatilité amplifie l'impermanent loss et rend la taille de position d'autant plus déterminante." },
+  { t: "2FA", d: "Double authentification. Un second facteur en plus du mot de passe. Par application de préférence, jamais par SMS.", lien: "/apprendre/securite/" },
+  { t: "XRP", d: "Actif natif du XRP Ledger. Sert à payer les frais, à constituer la réserve des comptes et de monnaie pont entre les autres actifs. Cent milliards ont été créés au lancement, aucun depuis.", lien: "/apprendre/xrp-ledger/" },
+  { t: "XRP Ledger", d: "Registre partagé lancé en 2012, conçu pour les paiements rapides et peu coûteux. Il intègre nativement un carnet d'ordres, des tokens, des NFT et un AMM.", lien: "/apprendre/xrp-ledger/" }
+];
+
+function clef(x) {
+  const c = x.t[0].toUpperCase();
+  return /[0-9]/.test(c) ? '#' : c;
+}
+const tries = [...termes].sort((a, b) =>
+  a.t.localeCompare(b.t, 'fr', { sensitivity: 'base' })
+);
+const lettres = [...new Set(tries.map(clef))];
+---
+<Base
+  title="Glossaire XRP, XRPL et trading — Crypto Oli"
+  description="Définitions claires des termes du XRP Ledger, de la crypto et du trading : trustline, rippling, impermanent loss, réserve, auto-bridging et bien d'autres."
+>
+  <main>
+    <p class="retour"><a href="/apprendre/">← Apprendre</a></p>
+
+    <h1>Glossaire</h1>
+    <p class="chapeau">
+      {termes.length} termes du XRP Ledger, de la crypto et du trading, définis
+      simplement. Chaque définition renvoie vers la leçon correspondante quand
+      elle existe.
+    </p>
+
+    <input
+      type="search"
+      id="filtre"
+      placeholder="Chercher un terme…"
+      autocomplete="off"
+      aria-label="Chercher un terme dans le glossaire"
+    />
+
+    <nav class="lettres" aria-label="Index alphabétique">
+      {lettres.map((l) => <a href={`#lettre-${l}`}>{l}</a>)}
+    </nav>
+
+    <div id="liste">
+      {lettres.map((l) => (
+        <section class="groupe" data-lettre={l}>
+          <h2 id={`lettre-${l}`}>{l}</h2>
+          {tries.filter((x) => clef(x) === l).map((x) => (
+            <article class="terme" data-nom={x.t.toLowerCase()}>
+              <h3>{x.t}</h3>
+              <p>{x.d}</p>
+              {x.lien && <p class="voir"><a href={x.lien}>Leçon associée →</a></p>}
+            </article>
+          ))}
+        </section>
+      ))}
+    </div>
+
+    <p id="vide" hidden>Aucun terme ne correspond à cette recherche.</p>
+
+    <footer>
+      <p>
+        Ce glossaire s'enrichit au fil des leçons. S'il manque un terme que vous
+        cherchiez, dites-le-moi.
+      </p>
+      <p><a href="/apprendre/">← Toutes les leçons</a></p>
+    </footer>
+  </main>
+
+  <script is:inline>
+    (function () {
+      var champ = document.getElementById('filtre');
+      if (!champ) return;
+      var termes = document.querySelectorAll('.terme');
+      var groupes = document.querySelectorAll('.groupe');
+      var vide = document.getElementById('vide');
+
+      champ.addEventListener('input', function () {
+        var q = champ.value.trim().toLowerCase();
+        var trouves = 0;
+
+        termes.forEach(function (el) {
+          var ok = !q || el.dataset.nom.indexOf(q) !== -1
+                || el.textContent.toLowerCase().indexOf(q) !== -1;
+          el.hidden = !ok;
+          if (ok) trouves++;
+        });
+
+        groupes.forEach(function (g) {
+          g.hidden = !g.querySelector('.terme:not([hidden])');
+        });
+
+        vide.hidden = trouves > 0;
+      });
+    })();
+  </script>
+
+  <style>
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+    }
+    #filtre {
+      width: 100%;
+      background: #0c1526;
+      border: 1px solid #1e2c46;
+      border-radius: 10px;
+      padding: 0.85rem 1.1rem;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    #filtre:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+    .lettres {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 1.5rem 0 1rem;
+    }
+    .lettres a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .lettres a:hover { color: var(--accent); }
+    .groupe { margin-top: 2.5rem; }
+    h2 {
+      font-size: 0.95rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      margin: 0 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #17223a;
+      scroll-margin-top: 1rem;
+    }
+    .terme { margin-bottom: 1.6rem; }
+    h3 {
+      font-size: 1.1rem;
+      margin: 0 0 0.35rem;
+      letter-spacing: -0.01em;
+    }
+    .terme p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+    .voir { margin-top: 0.4rem !important; font-size: 0.87rem !important; }
+    .voir a { text-decoration: none; }
+    #vide { color: var(--muted); margin-top: 2rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>
