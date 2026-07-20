@@ -1,0 +1,245 @@
+---
+import Base from '../../layouts/Base.astro';
+const issuer = 'rDTHkzTq3Acxu6QrSLVfHrR3KadFknMkfS';
+---
+<Base
+  title="CFH — ce qui s'est passé"
+  description="Ce qu'était CFH, pourquoi le modèle s'est arrêté, et ce que j'ai fait de ma position. Informations factuelles et vérifiables."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>CFH — ce qui s'est passé</h1>
+    <p class="chapeau">
+      Ce qu'était le projet, pourquoi il s'est arrêté, ce que j'ai fait de ma
+      position, et ce que vous pouvez attendre de moi aujourd'hui.
+    </p>
+
+    <div class="note">
+      <p>
+        <strong>En résumé.</strong> J'ai liquidé la totalité de ma position en CFH le
+        1<sup>er</sup> juillet 2026, dans un moment de panique lié à l'incident de
+        sécurité que je venais de traverser. Je n'en détiens plus rien et je ne
+        développe plus ce projet. Cette page existe pour que ce soit dit clairement
+        plutôt que découvert.
+      </p>
+    </div>
+
+    <h2>Ce qu'était CFH</h2>
+
+    <p>
+      CFH est un token émis sur le XRP Ledger en décembre 2024. Je n'en suis pas le
+      créateur d'origine : je l'ai repris quelque temps après le lancement d'OLX.
+    </p>
+
+    <p>
+      L'idée était d'en faire un jeton de participation. À l'époque, je cherchais à
+      donner une utilité concrète à OLX, et CFH devait être ce lien.
+    </p>
+
+    <h2>Comment ça fonctionnait</h2>
+
+    <p>Le mécanisme reposait sur trois éléments :</p>
+
+    <ul>
+      <li>Détenir du CFH pendant 30 jours donnait droit à une distribution de ma part, le 15 de chaque mois.</li>
+      <li>Fournir de la liquidité dans le pool OLX donnait également du CFH.</li>
+      <li>Ces distributions étaient financées par la vente de deux produits de trading, proposés aux détenteurs de LP OLX et de CFH.</li>
+    </ul>
+
+    <p>
+      Autrement dit : les revenus des ventes finançaient les distributions. Tant que les
+      ventes suivaient, le mécanisme tournait.
+    </p>
+
+    <h2>Pourquoi ça s'est arrêté</h2>
+
+    <p>
+      Les ventes se sont essoufflées rapidement. Sans elles, je n'avais plus de quoi
+      distribuer, et les versements du 15 se sont arrêtés.
+    </p>
+
+    <p>
+      Avec le recul, le problème n'était pas conjoncturel, il était structurel. Un
+      mécanisme de distribution financé par des ventes dépend entièrement du maintien
+      de ces ventes. Quand elles ralentissent, il n'y a pas de plan B — le modèle
+      s'arrête, purement et simplement.
+    </p>
+
+    <p>
+      C'est exactement le type de fragilité que je décris dans ma
+      <a href="/apprendre/evaluer-un-token/">leçon sur l'évaluation des tokens</a>.
+      Je l'écris en connaissance de cause.
+    </p>
+
+    <h2>Ce que j'ai fait le 1<sup>er</sup> juillet 2026</h2>
+
+    <p>
+      Fin juin 2026, j'ai traversé un incident de sécurité. Dans le stress de cette
+      période, j'ai liquidé l'intégralité de ma position en CFH.
+    </p>
+
+    <p>
+      Ce n'était pas une décision réfléchie ni planifiée. C'était une réaction de
+      panique. Elle est inscrite sur le registre et vérifiable par n'importe qui.
+    </p>
+
+    <p>
+      Je ne cherche pas à la justifier. Je la mentionne parce que des personnes
+      détiennent encore ce token et méritent de savoir où j'en suis.
+    </p>
+
+    <h2>Où en est CFH aujourd'hui</h2>
+
+    <div class="data">
+      <dl>
+        <dt>Adresse émettrice</dt>
+        <dd class="addr">{issuer}</dd>
+
+        <dt>Création</dt>
+        <dd>6 décembre 2024</dd>
+
+        <dt>État du compte émetteur</dt>
+        <dd>Blackholé — clé maîtresse désactivée, offre figée</dd>
+
+        <dt>Ma position</dt>
+        <dd>Aucune. Position entièrement liquidée le 1<sup>er</sup> juillet 2026.</dd>
+
+        <dt>Liquidité restante</dt>
+        <dd>Elle ne m'appartient pas.</dd>
+      </dl>
+    </div>
+
+    <p>
+      <a href={`https://xrpscan.com/account/${issuer}`} rel="noopener">Vérifier l'émetteur sur XRPScan →</a>
+    </p>
+
+    <p>
+      <strong>Une précision si vous consultez la liste des détenteurs.</strong>
+      L'adresse <code>rLZzP6gATGt63zAkQjHJWrrRAJ7bR5Q6h2</code> apparaît comme
+      le plus gros détenteur avec environ 33 % de l'offre. Ce n'est pas une
+      personne : c'est le compte du pool AMM, créé automatiquement par le
+      protocole. Certains outils l'affichent comme un portefeuille ordinaire et
+      lui attribuent des gains ou des pertes qui n'ont aucun sens. Ces LP tokens
+      ne m'appartiennent pas.
+    </p>
+
+    <h2>Ce que vous pouvez attendre de moi</h2>
+
+    <p>Je préfère être net plutôt que de laisser de l'ambiguïté.</p>
+
+    <ul>
+      <li><strong>Je ne développe plus CFH.</strong> Aucune fonctionnalité, aucune distribution, aucun projet en cours.</li>
+      <li><strong>Il n'y aura pas de reprise des versements du 15.</strong> Le mécanisme qui les finançait n'existe plus.</li>
+      <li><strong>Je ne promets pas d'y revenir.</strong> Je ne sais pas si je le ferai, et je ne vais pas entretenir un espoir que je ne peux pas garantir.</li>
+      <li><strong>La liquidité qui reste dans le marché ne vient pas de moi.</strong> Je ne la contrôle pas et je ne peux pas m'engager sur son maintien.</li>
+    </ul>
+
+    <p>
+      Si vous détenez du CFH, cette page devrait vous donner de quoi décider en
+      connaissance de cause. C'est le minimum que je vous dois.
+    </p>
+
+    <h2>Ce que j'en retiens</h2>
+
+    <p>
+      Deux erreurs, que je préfère nommer plutôt que laisser deviner.
+    </p>
+
+    <p>
+      <strong>Le modèle était fragile dès le départ.</strong> Financer des distributions
+      régulières par des ventes de produits crée une dépendance directe à ces ventes.
+      J'aurais dû le voir avant de le lancer, pas après.
+    </p>
+
+    <p>
+      <strong>J'ai pris une décision majeure sous le coup du stress.</strong> Liquider
+      une position entière en réaction à un incident, sans en parler à personne et sans
+      le communiquer ensuite, était une mauvaise façon de procéder — indépendamment de
+      la décision elle-même.
+    </p>
+
+    <p>
+      Ce que je change : ce qui est publié ici reste publié, y compris quand c'est
+      inconfortable. Une information corrigée vaut mieux qu'une information avantageuse.
+    </p>
+
+    <footer>
+      <p>
+        Rien sur cette page ne constitue un conseil financier. Les tokens comportent un
+        risque de perte totale du capital engagé.
+      </p>
+      <p>Publiée en juillet 2026. Cette page ne sera pas retirée.</p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+    .note {
+      background: #0c1526;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 3rem;
+    }
+    .note p { margin: 0; font-size: 0.95rem; }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    .data {
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0 2rem;
+    }
+    dl { margin: 0; }
+    dt {
+      color: var(--muted);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 1.2rem;
+    }
+    dt:first-child { margin-top: 0; }
+    dd { margin: 0.3rem 0 0; }
+    .addr {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 0.85rem;
+      word-break: break-all;
+      color: var(--accent);
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>
