@@ -1,0 +1,258 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="Le rippling expliqué — XRP Ledger | Crypto Oli"
+  description="Ce qu'est le rippling sur le XRP Ledger, à quoi servent les drapeaux Default Ripple et No Ripple, et pourquoi les activer sans comprendre peut vous coûter cher."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>Le rippling expliqué</h1>
+    <p class="chapeau">
+      Le mécanisme le plus mal compris du XRP Ledger — et l'un des rares dont une
+      mauvaise configuration a des conséquences financières directes.
+    </p>
+
+    <h2>D'abord, une confusion à lever</h2>
+
+    <p>
+      Le <em>rippling</em> n'a rien à voir avec Ripple, l'entreprise. C'est un terme
+      technique du protocole, hérité du nom d'origine du réseau, et il désigne un
+      mécanisme précis qui n'appartient à personne.
+    </p>
+
+    <p>
+      Cette confusion en entraîne une seconde : beaucoup pensent qu'activer ou
+      désactiver le rippling est un choix idéologique. Ce n'en est pas un. C'est un
+      réglage technique dont la bonne valeur dépend simplement de ce que vous faites.
+    </p>
+
+    <h2>Le problème que ça résout</h2>
+
+    <p>
+      Sur le XRP Ledger, le XRP est le seul actif natif. Tout le reste existe sous forme
+      de dette émise par une adresse, détenue via une
+      <a href="/apprendre/portefeuille-xrp/">ligne de confiance</a>.
+    </p>
+
+    <p>
+      Imaginons qu'Alice et Bob détiennent tous les deux le même token, émis par la même
+      adresse. Alice veut envoyer 10 tokens à Bob. Mais Alice n'a pas de ligne de
+      confiance avec Bob — elle en a une avec l'émetteur, et Bob aussi.
+    </p>
+
+    <p>
+      Sans mécanisme supplémentaire, ce paiement serait impossible. Deux détenteurs d'un
+      même token ne pourraient jamais se payer directement.
+    </p>
+
+    <figure>
+      <img src="/schemas/rippling-normal.svg" alt="Alice paie Bob en passant par l'émetteur, qui sert d'intermédiaire passif" width="700" height="260" loading="lazy" />
+      <figcaption>L'émetteur sert d'intermédiaire, sans intervenir ni y gagner.</figcaption>
+    </figure>
+
+    <p>
+      Le rippling règle ça. Le paiement passe à travers l'émetteur : la dette de
+      l'émetteur envers Alice diminue de 10, celle envers Bob augmente de 10. L'émetteur
+      doit toujours le même total, et n'a rien eu à faire.
+    </p>
+
+    <p>
+      C'est un mécanisme essentiel. Sans lui, les tokens du XRPL seraient pratiquement
+      inutilisables entre particuliers.
+    </p>
+
+    <h2>Deux réglages, deux niveaux</h2>
+
+    <p>
+      Le rippling se contrôle à deux endroits, et c'est là que la plupart des
+      explications se perdent.
+    </p>
+
+    <p>
+      <strong>Default Ripple</strong> est un réglage du <strong>compte</strong>. Il
+      détermine le comportement par défaut des lignes de confiance que d'autres ouvrent
+      vers vous. Sur un compte neuf, il est désactivé.
+    </p>
+
+    <p>
+      <strong>No Ripple</strong> est un réglage de chaque <strong>ligne de confiance</strong>
+      prise individuellement. Quand il est actif, cette ligne bloque le rippling.
+    </p>
+
+    <p>
+      Les deux sont liés : lorsque Default Ripple est désactivé sur votre compte — ce qui
+      est le cas par défaut — le drapeau No Ripple est actif sur vos lignes de confiance.
+      Autrement dit, <strong>un utilisateur ordinaire est protégé sans rien faire</strong>.
+    </p>
+
+    <p>
+      Ce point mérite d'être souligné, parce que beaucoup d'articles laissent croire
+      qu'il faut agir en urgence. Ce n'est pas le cas. Le danger vient de ceux qui
+      activent le rippling sans en comprendre les conséquences.
+    </p>
+
+    <h2>Le danger concret</h2>
+
+    <p>
+      Voici pourquoi il ne faut pas l'activer à la légère.
+    </p>
+
+    <p>
+      Le rippling peut échanger automatiquement des tokens portant le
+      <strong>même code de devise</strong>, même lorsqu'ils viennent
+      <strong>d'émetteurs différents</strong>, au taux de 1 pour 1.
+    </p>
+
+    <p>
+      Or, comme on l'a vu dans la
+      <a href="/apprendre/evaluer-un-token/">leçon sur l'évaluation des tokens</a>, le
+      code de devise ne garantit rien. Deux tokens nommés « USD » par deux émetteurs
+      différents sont deux actifs sans rapport, dont la valeur réelle peut être très
+      différente.
+    </p>
+
+    <figure>
+      <img src="/schemas/rippling-danger.svg" alt="Un tiers échange vos tokens fiables contre des tokens douteux en passant par votre compte" width="700" height="300" loading="lazy" />
+      <figcaption>Le solde affiché reste identique. La qualité de ce que vous détenez, non.</figcaption>
+    </figure>
+
+    <p>
+      Si vous détenez le même code de devise auprès de deux émetteurs et que le rippling
+      est actif, un tiers peut faire passer un paiement à travers votre compte. Vos
+      tokens du bon émetteur partent, remplacés par ceux du mauvais, à un taux de 1 pour 1.
+    </p>
+
+    <p>
+      Vous n'avez rien signé, rien approuvé, rien vu venir. La quantité affichée est
+      identique. Ce que vous détenez réellement vaut moins.
+    </p>
+
+    <p>
+      C'est un risque réel, documenté par la documentation officielle du XRP Ledger, qui
+      recommande explicitement aux détenteurs ordinaires de ne pas autoriser le rippling.
+    </p>
+
+    <h2>Qui doit activer quoi</h2>
+
+    <p>La règle est simple une fois qu'on distingue les deux rôles.</p>
+
+    <p>
+      <strong>Si vous émettez un token, vous devez activer Default Ripple.</strong> Sans
+      lui, les détenteurs de votre token ne peuvent pas se le transférer entre eux, et
+      il devient inutilisable. C'est une obligation technique, pas une option.
+    </p>
+
+    <p>
+      <strong>Si vous détenez simplement des tokens, laissez le rippling désactivé.</strong>
+      Vous n'en avez aucun besoin. Il ne vous apporte rien et vous expose au scénario
+      décrit plus haut.
+    </p>
+
+    <p>
+      Les seules exceptions concernent les intermédiaires qui font circuler de la valeur
+      délibérément — passerelles, teneurs de marché, systèmes de crédit communautaire.
+      Si vous n'êtes pas dans ce cas, la réponse est non.
+    </p>
+
+    <h2>Comment vérifier</h2>
+
+    <p>
+      L'information est publique. Sur XRPScan ou Bithomp, la fiche d'un compte affiche
+      une propriété <code>Rippling</code>, avec la valeur <code>ENABLED</code> ou
+      <code>DISABLED</code>.
+    </p>
+
+    <p>
+      Deux lectures, selon le compte que vous regardez :
+    </p>
+
+    <ul>
+      <li><strong>Sur un compte émetteur</strong>, <code>ENABLED</code> est normal et attendu. C'est ce qui permet aux détenteurs d'échanger le token entre eux. Un émetteur avec le rippling désactivé aurait un token qui ne circule pas.</li>
+      <li><strong>Sur votre compte personnel</strong>, <code>DISABLED</code> est ce que vous voulez voir. Si vous trouvez <code>ENABLED</code> sans l'avoir activé volontairement, cherchez pourquoi.</li>
+    </ul>
+
+    <p>
+      Vous pouvez aussi inspecter chaque ligne de confiance individuellement : le drapeau
+      No Ripple y apparaît ligne par ligne. Certains portefeuilles l'exposent directement
+      dans leur interface.
+    </p>
+
+    <h2>Ce qu'il faut retenir</h2>
+
+    <ul>
+      <li>Le rippling n'a rien à voir avec l'entreprise Ripple. C'est un mécanisme du protocole.</li>
+      <li>Il permet à deux détenteurs d'un même token de se payer, l'émetteur servant d'intermédiaire passif.</li>
+      <li>Il peut échanger des tokens de même code mais d'émetteurs différents, au taux de 1 pour 1 — indépendamment de leur valeur réelle.</li>
+      <li>Un compte neuf est protégé par défaut. Le danger vient de l'activation sans compréhension.</li>
+      <li>Émetteur : activez-le, c'est obligatoire. Simple détenteur : laissez-le désactivé.</li>
+    </ul>
+
+    <footer>
+      <p>
+        Rien dans cet article ne constitue un conseil financier. Les cryptomonnaies
+        comportent un risque de perte en capital.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(1.9rem, 5vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    code {
+      background: #131f36;
+      padding: 0.15em 0.4em;
+      border-radius: 4px;
+      font-size: 0.85em;
+    }
+    figure {
+      margin: 2.5rem 0;
+      padding: 1.5rem;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+    }
+    figure img { width: 100%; height: auto; display: block; }
+    figcaption {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>

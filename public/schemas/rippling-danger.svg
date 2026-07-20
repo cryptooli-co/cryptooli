@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300" role="img" aria-label="Le danger du rippling : un tiers échange des tokens fiables contre des tokens douteux à travers votre compte">
+  <style>
+    .ttl { font: 600 15px system-ui, sans-serif; fill: #e8ecf4; }
+    .lbl { font: 600 13.5px system-ui, sans-serif; fill: #e8ecf4; }
+    .sub { font: 400 12.5px system-ui, sans-serif; fill: #8b96ad; }
+    .box { fill: #101a2e; stroke: #1e2c46; stroke-width: 1.5; }
+    .you { fill: #101a2e; stroke: #d98a4a; stroke-width: 2; }
+    .bad { fill: #101a2e; stroke: #c25a5a; stroke-width: 1.5; }
+    .good { fill: #101a2e; stroke: #4a9e6a; stroke-width: 1.5; }
+  </style>
+
+  <text class="ttl" x="55" y="30">Vous détenez « USD » de deux émetteurs différents</text>
+
+  <rect class="good" x="55" y="66" width="165" height="66" rx="10"/>
+  <text class="lbl" x="137" y="94" text-anchor="middle" fill="#4a9e6a">Émetteur fiable</text>
+  <text class="sub" x="137" y="115" text-anchor="middle">USD · solvable</text>
+
+  <rect class="you" x="268" y="66" width="165" height="66" rx="10"/>
+  <text class="lbl" x="350" y="94" text-anchor="middle" fill="#d98a4a">Votre compte</text>
+  <text class="sub" x="350" y="115" text-anchor="middle">rippling activé</text>
+
+  <rect class="bad" x="481" y="66" width="165" height="66" rx="10"/>
+  <text class="lbl" x="563" y="94" text-anchor="middle" fill="#c25a5a">Émetteur douteux</text>
+  <text class="sub" x="563" y="115" text-anchor="middle">USD · sans garantie</text>
+
+  <path d="M 260 99 L 228 99" stroke="#c25a5a" stroke-width="2" fill="none"/>
+  <path d="M 228 99 l 9 -5 v 10 z" fill="#c25a5a"/>
+  <path d="M 441 99 L 473 99" stroke="#c25a5a" stroke-width="2" fill="none"/>
+  <path d="M 473 99 l -9 -5 v 10 z" fill="#c25a5a"/>
+
+  <text class="sub" x="55" y="176">Un tiers fait passer un paiement à travers votre compte.</text>
+  <text class="sub" x="55" y="198">Vos tokens de l'émetteur fiable partent, remplacés au taux de 1 pour 1</text>
+  <text class="sub" x="55" y="220">par ceux de l'émetteur douteux.</text>
+
+  <text class="lbl" x="55" y="256" fill="#c25a5a">Même quantité affichée. Valeur réelle bien inférieure.</text>
+  <text class="sub" x="55" y="280">Vous n'avez rien fait, rien signé, rien approuvé.</text>
+</svg>

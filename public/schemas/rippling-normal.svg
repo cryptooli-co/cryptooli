@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 260" role="img" aria-label="Alice paie Bob en passant par l'émetteur qui sert d'intermédiaire passif">
+  <style>
+    .ttl { font: 600 15px system-ui, sans-serif; fill: #e8ecf4; }
+    .lbl { font: 600 14px system-ui, sans-serif; fill: #e8ecf4; }
+    .sub { font: 400 12.5px system-ui, sans-serif; fill: #8b96ad; }
+    .box { fill: #101a2e; stroke: #1e2c46; stroke-width: 1.5; }
+    .iss { fill: #101a2e; stroke: #2f7dff; stroke-width: 2; }
+  </style>
+
+  <text class="ttl" x="55" y="30">Alice envoie 10 tokens à Bob</text>
+
+  <rect class="box" x="55" y="70" width="140" height="60" rx="10"/>
+  <text class="lbl" x="125" y="106" text-anchor="middle">Alice</text>
+
+  <rect class="iss" x="280" y="70" width="140" height="60" rx="10"/>
+  <text class="lbl" x="350" y="99" text-anchor="middle" fill="#2f7dff">Émetteur</text>
+  <text class="sub" x="350" y="118" text-anchor="middle">intermédiaire passif</text>
+
+  <rect class="box" x="505" y="70" width="140" height="60" rx="10"/>
+  <text class="lbl" x="575" y="106" text-anchor="middle">Bob</text>
+
+  <path d="M 200 100 L 272 100" stroke="#2f7dff" stroke-width="2" fill="none"/>
+  <path d="M 272 100 l -9 -5 v 10 z" fill="#2f7dff"/>
+  <path d="M 425 100 L 497 100" stroke="#2f7dff" stroke-width="2" fill="none"/>
+  <path d="M 497 100 l -9 -5 v 10 z" fill="#2f7dff"/>
+
+  <text class="sub" x="236" y="152" text-anchor="middle">−10</text>
+  <text class="sub" x="461" y="152" text-anchor="middle">+10</text>
+
+  <text class="sub" x="55" y="200">Les deux ont une ligne de confiance vers le même émetteur.</text>
+  <text class="sub" x="55" y="222">Le solde de l'émetteur ne change pas : il doit toujours le même total.</text>
+  <text class="sub" x="55" y="244">C'est ça, le rippling. Sans lui, deux détenteurs ne pourraient pas se payer.</text>
+</svg>
