@@ -1,0 +1,141 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+<Base
+  title="OLX — l'écosystème | Crypto Oli"
+  description="Ce qu'est OLX, ses composantes, et où en est chacune. Informations factuelles et vérifiables."
+>
+  <main>
+    <p class="retour"><a href="/">← Crypto Oli</a></p>
+
+    <h1>OLX</h1>
+    <p class="chapeau">
+      Ce qu'est l'écosystème, ses composantes, et l'état de chacune.
+    </p>
+
+    <h2>Ce qu'est OLX</h2>
+
+    <p>
+      OLX est né de la communauté Crypto Oli, construite depuis 2020 autour du partage
+      gratuit de contenu éducatif sur le XRP, les marchés et le trading.
+    </p>
+
+    <p>
+      La communauté préexiste au projet. OLX est venu après, comme une façon pour ceux
+      qui le souhaitaient de participer — pas comme la raison d'être de ce que je fais.
+      Le contenu éducatif est gratuit et le restera, indépendamment de tout ça.
+    </p>
+
+    <h2>Les composantes</h2>
+
+    <div class="liste">
+      <a class="carte" href="/olx/token/">
+        <span class="carte-titre">Le token OLX</span>
+        <span class="carte-desc">
+          Émis sur le XRP Ledger en mars 2025. Émetteur blackholé, offre figée.
+          Adresse émettrice, risques et vérifications.
+        </span>
+      </a>
+
+      <a class="carte" href="/olx/nft/">
+        <span class="carte-titre">La collection NFT</span>
+        <span class="carte-desc">
+          5 309 NFT mintés en septembre 2025, avec des accès communautaires rattachés
+          à certains traits. État actuel et ce qui est prévu.
+        </span>
+      </a>
+
+      <a class="carte" href="/olx/cfh/">
+        <span class="carte-titre">CFH</span>
+        <span class="carte-desc">
+          Projet arrêté. Position entièrement liquidée en juillet 2026. Ce qui s'est
+          passé et ce que vous pouvez attendre de moi.
+        </span>
+      </a>
+    </div>
+
+    <h2>Ce qu'OLX n'est pas</h2>
+
+    <ul>
+      <li>Ce n'est pas un investissement, et aucun rendement n'est promis.</li>
+      <li>Ce n'est pas nécessaire pour accéder au contenu éducatif, qui reste gratuit pour tous.</li>
+      <li>Ce n'est pas un projet qui promet de résoudre quoi que ce soit à grande échelle.</li>
+    </ul>
+
+    <p>
+      Si vous envisagez d'y participer, je vous encourage à appliquer d'abord la grille
+      décrite dans ma <a href="/apprendre/evaluer-un-token/">leçon sur l'évaluation des
+      tokens</a>. Elle s'applique à OLX exactement comme aux autres.
+    </p>
+
+    <footer>
+      <p>
+        Rien sur ces pages ne constitue un conseil financier. Les cryptomonnaies et les
+        NFT comportent un risque de perte totale du capital engagé.
+      </p>
+      <p><a href="/">← Retour à l'accueil</a></p>
+    </footer>
+  </main>
+
+  <style>
+    main {
+      max-width: 42rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .retour { font-size: 0.9rem; margin-bottom: 3rem; }
+    .retour a { color: var(--muted); text-decoration: none; }
+    .retour a:hover { color: var(--accent); }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
+    }
+    .chapeau {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 3.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+    p { margin: 0 0 1.2rem; }
+    ul { padding-left: 1.2rem; }
+    li { margin-bottom: 0.7rem; }
+    .liste { display: flex; flex-direction: column; gap: 0.8rem; }
+    .carte {
+      display: block;
+      background: #0c1526;
+      border: 1px solid #17223a;
+      border-radius: 12px;
+      padding: 1.3rem 1.5rem;
+      text-decoration: none;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+    .carte:hover { border-color: var(--accent); background: #101c33; }
+    .carte-titre {
+      display: block;
+      color: var(--text);
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+    .carte-desc {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #1b2436;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</Base>
