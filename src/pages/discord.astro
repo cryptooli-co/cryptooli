@@ -1,0 +1,25 @@
+---
+// Redirection vers le serveur Discord officiel.
+// Pour changer l'invitation : modifier UNIQUEMENT la ligne ci-dessous.
+const invitation = "https://discord.gg/sR9yZwcYSz";
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${invitation}`} />
+    <link rel="canonical" href={invitation} />
+    <meta name="robots" content="noindex" />
+    <title>Redirection vers le Discord de Crypto Oli</title>
+  </head>
+  <body style="background:#070C18; color:#E8ECF4; font-family:system-ui, sans-serif; display:flex; min-height:100vh; align-items:center; justify-content:center; margin:0; text-align:center;">
+    <div>
+      <p>Redirection vers le serveur Discord…</p>
+      <p style="color:#8B96AD; font-size:0.9rem;">
+        Si rien ne se passe,
+        <a href={invitation} style="color:#2F7DFF;">clique ici</a>.
+      </p>
+    </div>
+  </body>
+</html>
